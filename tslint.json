@@ -1,0 +1,6 @@
+{
+  "extends": "tslint-config-qiwi",
+  "rules": {
+    "await-promise": [true, "Bluebird", "IPromise"]
+  }
+}
