@@ -10,13 +10,65 @@ Functional mixins are composable factories which connect together in a pipeline;
 
 Perhaps these are not perfect definitions, but we'll rely on them.
 
-## How and what to mix-in
+## How and what to mix
+1. Class extension
+    ```typescript
+    type Constructor<T = {}> = new (...args: any[]) => T
+    
+    function MixFoo<TBase extends Constructor>(Base: TBase) {
+      return class extends Base {
+        foo() { return 'bar' }
+      }
+    }
+    ```
+
+2. Prototype modification
+    ```typescript
+    class Derived {}
+    class Mixed {
+      foo() { return 'bar' }
+    }
+    
+    Object.getOwnPropertyNames(Mixed.prototype).forEach(name => {
+        Object.defineProperty(Derived.prototype, name, Object.getOwnPropertyDescriptor(Mixed.prototype, name));
+    })
+    ```
+
+3. Object modification
+    ```typescript
+    const foo = {foo: 'foo'}
+    const fooMixin = (target) => Object.assign(target, foo)
+    const bar = fooMixin({bar: 'bar'})
+    ```
+
+4. Proxy wrapping
+    ```typescript
+    const mixAsProxy = <P extends IAnyMap, M extends IAnyMap>(target: P, mixin: M): P & M => new Proxy(target, {
+      get: (obj, prop: string) => {
+        return prop in mixin
+          // @ts-ignore
+          ? mixin[prop]
+          // @ts-ignore
+          : obj[prop]
+      },
+    }) as P & M
+    ```
+
+## ApplyMixins
+
+ 
+Official TS documentation gives [the following mixin implementation](https://www.typescriptlang.org/docs/handbook/mixins.html)
 ```typescript
-const foo = {foo: 'foo'}
-const bar = {bar: 'bar'}
-const foobar = {...foo, ...bar}
+function applyMixins(derivedCtor: any, baseCtors: any[]) {
+    baseCtors.forEach(baseCtor => {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
+            Object.defineProperty(derivedCtor.prototype, name, Object.getOwnPropertyDescriptor(baseCtor.prototype, name));
+        });
+    });
+}
 ```
-There's no "mixin" but mixing is present.
+
+
 
 ## Refs
 * [https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c](https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c)
