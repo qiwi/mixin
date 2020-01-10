@@ -1,6 +1,12 @@
 # mixin
 Self-education project to compare different mixin approaches in TypeScript
 
+## Questions
+1. Is it possible to mix classes with automated type inference?
+2. How to combine OOP and functional mixins?
+3. How to check if composition has a given mixin or not?
+4. What's about mixin factories?
+
 ## Definition
 A mixin is a special kind of multiple inheritance. It's a form of object composition, where component features get mixed into a composite object so that properties of each mixin become properties of the composite object.
   
@@ -10,8 +16,8 @@ Functional mixins are composable factories which connect together in a pipeline;
 
 Perhaps these are not perfect definitions, but we'll rely on them.
 
-## How and what to mix
-1. Class extension
+## How to and what to mix
+1. Subclass factory
     ```typescript
     type Constructor<T = {}> = new (...args: any[]) => T
     
