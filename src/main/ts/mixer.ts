@@ -20,9 +20,17 @@ export const applyMixinsAsMerge: IApplier = <T extends IAnyMap, U extends IAnyMa
     target
   ) as T & UnionToIntersection<U[number]>
 
+export type InstanceOrNever<T> = (T extends IConstructor ? InstanceType<T> : never)
+
+export type UnionInstanceTypeIntersection<U> = (U extends any
+  ? (k: U) => void
+  : never) extends (k: infer I) => void
+    ? InstanceOrNever<I>
+    : never
+
 // NOTE typeof Class does not equal to class type itself, so U[number] hook is incompatible here
-export const applyMixinsAsSubclass = <T extends IConstructor, M0 extends IConstructor, M1 extends IConstructor>(target: T, m0: M0, m1: M1) => {
-  function Mixed(...args: any[]): T & M0 & M1 {
+export const applyMixinsAsSubclass = <T extends IConstructor, U extends IConstructor[]>(target: T, ...mixins: U) => {
+  function Mixed(...args: any[]) {
     // @ts-ignore
     target.call(this, ...args)
 
@@ -33,12 +41,11 @@ export const applyMixinsAsSubclass = <T extends IConstructor, M0 extends IConstr
   Mixed.prototype = Object.create(target.prototype)
 
   // Object.assign(Mixed, ...mixins)
-  const ms = [m0, m1].filter(v => !!v)
-  mergeProto(Mixed, ...ms)
+  mergeProto(Mixed, ...mixins)
 
 // @ts-ignore
-  return Mixed as T & M0 & M1 & {
-    new (...args: any[]): InstanceType<T> & InstanceType<M0> & InstanceType<M1>
+  return Mixed as T & UnionToIntersection<U[number]> & {
+    new (...args: any[]): InstanceType<T> & UnionInstanceTypeIntersection<U[number]>
   }
 }
 
