@@ -21,18 +21,25 @@ export const applyMixinsAsMerge: IApplier = <T extends IAnyMap, U extends IAnyMa
   ) as T & UnionToIntersection<U[number]>
 
 // NOTE typeof Class does not equal to class type itself, so U[number] hook is incompatible here
-export const applyMixinsAsSubclass = <T, M0, M1, M2, M3, M4, M5, M6, M7, M8, M9>(target: T, ...mixins: Array<M0 | M1 | M2 | M3 | M4 | M5 | M6 | M7 | M8 | M9>): IConstructor<T> & T & M0 & M1 & M2 & M3 & M4 & M5 & M6 & M7 & M8 & M9 => {
-  const Base = target as unknown as IConstructor<any>
-  class Mixed extends Base {
-    constructor(...args: any[]) {
-      super(...args)
-      //mixins.forEach(m => m.call(this, ...args))
-    }
-  }
-  // Object.assign(Mixed, ...mixins)
-  mergeProto(Mixed, ...mixins)
+export const applyMixinsAsSubclass = <T extends IConstructor, M0 extends IConstructor, M1 extends IConstructor>(target: T, m0: M0, m1: M1) => {
+  function Mixed(...args: any[]): T & M0 & M1 {
+    // @ts-ignore
+    target.call(this, ...args)
 
-  return Mixed as IConstructor<T> & T & M0 & M1 & M2 & M3 & M4 & M5 & M6 & M7 & M8 & M9
+    // @ts-ignore
+    return this
+  }
+  // @ts-ignore
+  Mixed.prototype = Object.create(target.prototype)
+
+  // Object.assign(Mixed, ...mixins)
+  const ms = [m0, m1].filter(v => !!v)
+  mergeProto(Mixed, ...ms)
+
+// @ts-ignore
+  return Mixed as T & M0 & M1 & {
+    new (...args: any[]): InstanceType<T> & InstanceType<M0> & InstanceType<M1>
+  }
 }
 
 // export const applyMixinsAsProto: IApplier = () => { /* todo */ }

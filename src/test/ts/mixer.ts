@@ -82,14 +82,14 @@ describe('applyMixins', () => {
 
   describe('applyMixinsAsSubclass', () => {
     it('merges several classes into a one subclass', () => {
-      const M = applyMixinsAsSubclass(BCtor, ACtor, DCtor)
+      const M = applyMixinsAsSubclass(ACtor, BCtor, DCtor)
       const m = new M()
 
       expect(m.a()).toBe('a')
       expect(m.b()).toBe('A')
       expect(m.d()).toBe(1)
 
-      // f@ts-ignore
+      // @dts-ignore
       expect(m.c).toBeUndefined()
     })
   })

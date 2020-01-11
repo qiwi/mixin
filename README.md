@@ -27,7 +27,7 @@ const c: IA & IB = applyMixins({}, A, b)
 1. Is it possible to mix classes with automated type inference?
     > There're several solutions:
     > * A subclass factory 
-    > * Proto merge + constructor invocation + workarounds
+    > * Proto merge + constructor invocation + type cast workarounds
 2. How to combine OOP and functional mixins?
     > Apply diff merge strategies for each mixin type
 3. How to check if composition has a given mixin or not?
@@ -111,3 +111,4 @@ function applyMixins(derivedCtor: any, baseCtors: any[]) {
 * [https://github.com/justinfagnani/mixwith.js](https://github.com/justinfagnani/mixwith.js)
 * [https://github.com/amercier/es6-mixin](https://github.com/amercier/es6-mixin)
 * [https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful](https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful)
+* [https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/](https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/)
