@@ -1,11 +1,39 @@
 # mixin
-Self-education project to compare different mixin approaches in TypeScript
+Self-education project to compare different mixin approaches in TypeScript.
+
+## Usage
+```typescript
+import {applyMixins} from '@antongolub/mixin'
+
+interface IA {
+  a: () => string
+}
+interface IB {
+  b: () => string
+}
+class A implements IA {
+  a() { return 'a' }
+}
+const b: IB = {
+  b() { return 'b' }
+}
+
+const c: IA & IB = applyMixins({}, A, b)
+```
 
 ## Questions
+0. Definition.
+    > A mixin is a special kind of multiple inheritance.
 1. Is it possible to mix classes with automated type inference?
+    > It is. There're several solutions:
+    * A subclass factory 
+    * Proto merge + constructor invocation + `as T` workaround
 2. How to combine OOP and functional mixins?
+    > Apply diff merge strategies for
 3. How to check if composition has a given mixin or not?
-4. What's about mixin factories?
+    > Ref Cache / WeakMap
+4. What's about mixin factories?  
+    > Nice. It's called `applyMixins`
 
 ## Definition
 A mixin is a special kind of multiple inheritance. It's a form of object composition, where component features get mixed into a composite object so that properties of each mixin become properties of the composite object.
