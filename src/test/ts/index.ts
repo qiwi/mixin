@@ -1,32 +1,32 @@
 import {applyMixinAsProxy, mixAsProxy} from '../../main/ts'
 
 describe('mixin', () => {
-  interface IAMixin {
+  interface A {
     a(): string
   }
-  interface IBMixin extends IAMixin {
+  interface B extends A {
     b(): string
   }
 
-  interface ICMixin extends IBMixin {
+  interface C extends B {
     c(): string
   }
-  const aMixin: IAMixin = {
+  const a: A = {
     a() {
       return 'a'
     },
   }
-  const bMixin = {
+  const b = {
     b() {
       return this.a().toUpperCase()
     },
-  } as IBMixin
+  } as B
 
-  const cMixin = {
+  const c = {
     c() {
       return this.a() + this.b()
     },
-  } as ICMixin
+  } as C
 
   /*  describe('applyMixinsAsProxy', () => {
       it('attaches mixins as a proxies', () => {
@@ -40,9 +40,9 @@ describe('mixin', () => {
 
   describe('mixAsProxy', () => {
     it('attaches mixins as a proxies', () => {
-      const withAMixin = <T>(t: T): T & IAMixin => mixAsProxy<T, IAMixin>(t, aMixin)
-      const withBMixin = <T>(t: T): T & IBMixin => mixAsProxy<T, IBMixin>(t, bMixin)
-      const withCMixin = <T>(t: T): T & ICMixin => mixAsProxy<T, ICMixin>(t, cMixin)
+      const withAMixin = <T>(t: T): T & A => mixAsProxy<T, A>(t, a)
+      const withBMixin = <T>(t: T): T & B => mixAsProxy<T, B>(t, b)
+      const withCMixin = <T>(t: T): T & C => mixAsProxy<T, C>(t, c)
 
       type ITarget = {foo: string}
       const t: ITarget = {foo: 'bar'}
@@ -57,7 +57,7 @@ describe('mixin', () => {
       // @ts-ignore
       expect(t2.baz).toBeUndefined()
 
-      const t3 = applyMixinAsProxy(t, aMixin, bMixin, cMixin)
+      const t3 = applyMixinAsProxy(t, a, b, c)
 
       // @ts-ignore
       expect(t3.d).toBeUndefined()

@@ -1,5 +1,7 @@
 import {IAnyMap, UnionToIntersection} from '@qiwi/substrate'
 
+export {IAnyMap, UnionToIntersection}
+
 /**
  * Something to be mixed into the target object
  */
@@ -23,3 +25,6 @@ export interface IMixin<U extends any[]> {
   <T extends {}>(target: T): T & UnionToIntersection<U[number]>
 }
 
+export interface IConstructor<T = {}> extends Function {
+  new (...args: any[]): T
+}

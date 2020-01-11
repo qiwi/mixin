@@ -3,7 +3,7 @@ import {IAnyMap} from '@qiwi/substrate'
 /**
  * Something to be mixed into the target object
  */
-export type IMixin<T> = {
+export type IMix<T=IAnyMap> = {
   [P in keyof T]: T[P]
 }
 
@@ -59,3 +59,4 @@ export type UnionToIntersection<U> = ((U extends any ? (k: U) => void : never) e
  * @param mixins
  */
 export const applyMixinAsProxy: IApplyMixins = (target, ...mixins) => mixins.reduce(mixAsProxy, target)
+
