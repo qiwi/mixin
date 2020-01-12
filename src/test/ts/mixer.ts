@@ -1,7 +1,8 @@
 import {
   applyMixinsAsProxy,
   applyMixinsAsMerge,
-  applyMixinsAsSubclass
+  applyMixinsAsSubclass,
+  applyMixinsAsProto
 } from '../../main/ts/mixer'
 
 describe('applyMixins', () => {
@@ -50,6 +51,7 @@ describe('applyMixins', () => {
       return 1
     }
   }
+  class Blank {}
 
   describe('applyMixinsAsProxy', () => {
     it('attaches mixins as a proxy', () => {
@@ -82,7 +84,7 @@ describe('applyMixins', () => {
 
   describe('applyMixinsAsSubclass', () => {
     it('merges several classes into a one subclass', () => {
-      const M = applyMixinsAsSubclass(ACtor, BCtor, DCtor)
+      const M = applyMixinsAsSubclass(Blank, BCtor, DCtor)
       const m = new M()
 
       expect(M.foo()).toBe('foo')
@@ -90,6 +92,30 @@ describe('applyMixins', () => {
 
       expect(m).toBeInstanceOf(M)
       expect(m).toBeInstanceOf(ACtor)
+      expect(m.a()).toBe('a')
+      expect(m.b()).toBe('A')
+      expect(m.d()).toBe(1)
+
+      // _@ts-ignore
+
+      expect(m.c).toBeUndefined()
+    })
+  })
+
+  describe('applyMixinsAsProto', () => {
+    it('extends target class proto and statics with externals', () => {
+      class Target {
+        method() {
+          return 'value'
+        }
+      }
+      const Derived = applyMixinsAsProto(Target, BCtor, DCtor, Blank)
+      const m = new Derived()
+
+      expect(Derived).toBe(Target)
+      expect(Derived.foo()).toBe('foo')
+      expect(Derived.bar()).toBe('bar')
+
       expect(m.a()).toBe('a')
       expect(m.b()).toBe('A')
       expect(m.d()).toBe(1)
