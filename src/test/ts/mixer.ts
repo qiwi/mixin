@@ -89,7 +89,7 @@ describe('applyMixins', () => {
       expect(m.b()).toBe('A')
       expect(m.d()).toBe(1)
 
-      // @dts-ignore
+      // @ts-ignore
       expect(m.c).toBeUndefined()
     })
   })
