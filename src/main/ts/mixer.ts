@@ -11,7 +11,8 @@ import {
 
 import {
   mergeProto,
-  mergeDescriptors
+  mergeDescriptors,
+  isClass
 } from './util'
 
 export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) => new Proxy(target, {
@@ -31,7 +32,7 @@ export const applyMixinsAsMerge: IApplier = <T extends IAnyMap, U extends IAnyMa
   ) as T & UnionToIntersection<U[number]>
 
 // NOTE typeof Class does not equal to class type itself, so U[number] hook is incompatible here
-export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>(target: T, ...mixins: U) => {
+export const applyMixinsAsSubclass = <T extends Class, U extends any[]>(target: T, ...mixins: U) => {
   class Mixed extends target {
     constructor(...args: any[]) {
       super(...args)
@@ -44,7 +45,7 @@ export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>
     & IConstructable<InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>>
 }
 
-export const applyMixinsAsProto = <T extends IConstructable, U extends IConstructable[]>(target: T, ...mixins: U) => {
+export const applyMixinsAsProto = <T extends Class, U extends Class[]>(target: T, ...mixins: U) => {
   mergeProto(target, ...mixins)
   mergeDescriptors(target, ...mixins)
 
@@ -52,3 +53,16 @@ export const applyMixinsAsProto = <T extends IConstructable, U extends IConstruc
     & UnionToIntersection<U[number]>
     & IConstructable<InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>>
 }
+
+// https://github.com/microsoft/TypeScript/issues/17572
+type Abstract<T={}> = Function & {prototype: T};
+type Constructor<T={}> = new (...args: any[]) => T;
+type Class<T={}> = Abstract<T> & Constructor<T>;
+
+export const applyMixins = <T, U extends any[]>(target: T, ...mixins: U) =>
+  isClass(target)
+    ? applyMixinsAsSubclass(target as T & Class, ...mixins)
+    : applyMixinsAsMerge(target, ...mixins) as T
+      & UnionToIntersection<U[number]>
+      & IConstructable<InstanceType<T & IConstructable> & UnionToInstanceTypeIntersection<U[number]>>
+

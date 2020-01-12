@@ -2,7 +2,8 @@ import {
   applyMixinsAsProxy,
   applyMixinsAsMerge,
   applyMixinsAsSubclass,
-  applyMixinsAsProto
+  applyMixinsAsProto,
+  applyMixins
 } from '../../main/ts/mixer'
 
 describe('applyMixins', () => {
@@ -123,4 +124,31 @@ describe('applyMixins', () => {
       expect(m.c).toBeUndefined()
     })
   })
+
+  describe('applyMixins', () => {
+    it('if target has `class` type uses `applyMixinsAsSubclass` strategy', () => {
+      const M = applyMixins(Blank, ACtor, BCtor, DCtor)
+      const m = new M()
+
+      expect(m).toBeInstanceOf(M)
+      expect(m).toBeInstanceOf(ACtor)
+      expect(m.a()).toBe('a')
+      expect(m.b()).toBe('A')
+      expect(m.d()).toBe(1)
+
+      // @ts-ignore
+      expect(m.e).toBeUndefined()
+    })
+
+    it('if target is an object uses `applyMixinsAsMerge` strategy', () => {
+      const m = applyMixins({}, a, b, c)
+
+      expect(m.a()).toBe('a')
+      expect(m.b()).toBe('A')
+      expect(m.c()).toBe('aA')
+
+      // @ts-ignore
+      expect(m.d).toBeUndefined()
+    })
+  });
 })
