@@ -32,13 +32,6 @@ export const applyMixinsAsMerge: IApplier = <T extends IAnyMap, U extends IAnyMa
 
 // NOTE typeof Class does not equal to class type itself, so U[number] hook is incompatible here
 export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>(target: T, ...mixins: U) => {
-  /*function Mixed(...args: any[]) {
-    // @ts-ignore
-    applyMixinsAsMerge(this, ...mixins.map(M => new M(...args)))
-  }*/
-  // @ts-ignore
-  //Mixed.prototype = Object.create(target.prototype)
-
   class Mixed extends target {
     constructor(...args: any[]) {
       super(...args)
@@ -46,16 +39,16 @@ export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>
     }
   }
 
-  return applyMixinsAsProto(Mixed, target, ...mixins) as T & UnionToIntersection<U[number]> & {
-    new (...args: any[]): InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>
-  }
+  return applyMixinsAsProto(Mixed, target, ...mixins) as T
+    & UnionToIntersection<U[number]>
+    & IConstructable<InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>>
 }
 
 export const applyMixinsAsProto = <T extends IConstructable, U extends IConstructable[]>(target: T, ...mixins: U) => {
   mergeProto(target, ...mixins)
   mergeDescriptors(target, ...mixins)
 
-  return target as T & UnionToIntersection<U[number]> & {
-    new (...args: any[]): InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>
-  }
+  return target as T
+    & UnionToIntersection<U[number]>
+    & IConstructable<InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>>
 }
