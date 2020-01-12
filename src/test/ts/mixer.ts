@@ -37,13 +37,13 @@ describe('applyMixins', () => {
     a() {
       return 'a'
     }
-    // static foo() {return 'foo'}
+    static foo() {return 'foo'}
   }
   class BCtor extends ACtor implements B {
     b() {
       return this.a().toUpperCase()
     }
-    // static bar() {return 'bar'}
+    static bar() {return 'bar'}
   }
   class DCtor implements D {
     d() {
@@ -85,6 +85,11 @@ describe('applyMixins', () => {
       const M = applyMixinsAsSubclass(ACtor, BCtor, DCtor)
       const m = new M()
 
+      expect(M.foo()).toBe('foo')
+      expect(M.bar()).toBe('bar')
+
+      expect(m).toBeInstanceOf(M)
+      expect(m).toBeInstanceOf(ACtor)
       expect(m.a()).toBe('a')
       expect(m.b()).toBe('A')
       expect(m.d()).toBe(1)

@@ -17,6 +17,9 @@ export const mergeProto = (target: any, ...mixins: any[]) => mergeDescriptors(ta
 export const mergeDescriptors = <T, U extends any[]>(target: T, ...mixins: U): T & UnionToIntersection<U[number]> =>
   mixins.reduce((m, v) => {
     Object.getOwnPropertyNames(v).forEach(name => {
+      if (name === 'prototype') {
+        return
+      }
       Object.defineProperty(
         m,
         name,

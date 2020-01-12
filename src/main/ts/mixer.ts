@@ -1,8 +1,17 @@
 /** @module @antongolub/mixin */
 /** */
 
-import {IApplier, IAnyMap, UnionToIntersection, IConstructor} from './interface'
-import {mergeProto} from './util'
+import {
+  IApplier,
+  IAnyMap,
+  UnionToIntersection,
+  IConstructor
+} from './interface'
+
+import {
+  mergeProto,
+  mergeDescriptors
+} from './util'
 
 export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) => new Proxy(target, {
   get: (obj, prop: string) => {
@@ -37,8 +46,8 @@ export const applyMixinsAsSubclass = <T extends IConstructor, U extends any[]>(t
   // @ts-ignore
   Mixed.prototype = Object.create(target.prototype)
 
-  // Object.assign(Mixed, ...mixins)
-  mergeProto(Mixed, ...mixins)
+  mergeDescriptors(Mixed, target, ...mixins)
+  mergeProto(Mixed, target, ...mixins)
 
   return Mixed as IConstructor & T & UnionToIntersection<U[number]> & {
     new (...args: any[]): InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>
