@@ -84,7 +84,7 @@ describe('applyMixins', () => {
 
   describe('applyMixinsAsSubclass', () => {
     it('merges several classes into a one subclass', () => {
-      const M = applyMixinsAsSubclass(Blank, BCtor, DCtor)
+      const M = applyMixinsAsSubclass(ACtor, Blank, BCtor, DCtor)
       const m = new M()
 
       expect(M.foo()).toBe('foo')
@@ -96,8 +96,7 @@ describe('applyMixins', () => {
       expect(m.b()).toBe('A')
       expect(m.d()).toBe(1)
 
-      // _@ts-ignore
-
+      // @ts-ignore
       expect(m.c).toBeUndefined()
     })
   })
@@ -109,7 +108,7 @@ describe('applyMixins', () => {
           return 'value'
         }
       }
-      const Derived = applyMixinsAsProto(Target, BCtor, DCtor, Blank)
+      const Derived = applyMixinsAsProto(Target, ACtor, BCtor, DCtor, Blank)
       const m = new Derived()
 
       expect(Derived).toBe(Target)

@@ -17,14 +17,15 @@ export const mergeProto = (target: any, ...mixins: any[]) => mergeDescriptors(ta
 export const mergeDescriptors = <T, U extends any[]>(target: T, ...mixins: U): T & UnionToIntersection<U[number]> =>
   mixins.reduce((m, v) => {
     Object.getOwnPropertyNames(v).forEach(name => {
-      if (name === 'prototype') {
+      if (name === 'prototype' || name === 'constructor' || name === 'length' || name === 'name') {
         return
       }
+
       Object.defineProperty(
         m,
         name,
         Object.getOwnPropertyDescriptor(v, name) as PropertyDescriptor)
     })
 
-    return target
+    return m
   }, target)
