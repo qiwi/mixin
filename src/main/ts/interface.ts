@@ -1,5 +1,7 @@
 import {IAnyMap, UnionToIntersection} from '@qiwi/substrate'
 
+export * from './utility-types'
+
 export {IAnyMap, UnionToIntersection}
 
 /**

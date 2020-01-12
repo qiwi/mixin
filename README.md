@@ -56,7 +56,7 @@ Perhaps these are not perfect definitions, but we'll rely on them.
     }
     ```
 
-2. Prototype modification
+2. Prototype injection
     ```typescript
     class Derived {}
     class Mixed {
@@ -68,7 +68,7 @@ Perhaps these are not perfect definitions, but we'll rely on them.
     })
     ```
 
-3. Object modification
+3. Object assignment
     ```typescript
     const foo = {foo: 'foo'}
     const fooMixin = (target) => Object.assign(target, foo)
@@ -102,13 +102,12 @@ function applyMixins(derivedCtor: any, baseCtors: any[]) {
 }
 ```
 
-
-
 ## Refs
 * [https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c](https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c)
 * [https://mariusschulz.com/blog/mixin-classes-in-typescript](https://mariusschulz.com/blog/mixin-classes-in-typescript)
 * [https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/](https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/)
 * [https://github.com/justinfagnani/mixwith.js](https://github.com/justinfagnani/mixwith.js)
 * [https://github.com/amercier/es6-mixin](https://github.com/amercier/es6-mixin)
-* [https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful](https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful)
 * [https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/](https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/)
+* [https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful](https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful)
+* [https://stackoverflow.com/questions/48372465/type-safe-mixin-decorator-in-typescript](https://stackoverflow.com/questions/48372465/type-safe-mixin-decorator-in-typescript)
