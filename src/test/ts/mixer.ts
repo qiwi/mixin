@@ -131,7 +131,7 @@ describe('applyMixins', () => {
       const m = new M()
 
       expect(m).toBeInstanceOf(M)
-      expect(m).toBeInstanceOf(ACtor)
+      expect(m).toBeInstanceOf(Blank)
       expect(m.a()).toBe('a')
       expect(m.b()).toBe('A')
       expect(m.d()).toBe(1)
