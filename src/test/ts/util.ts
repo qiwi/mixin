@@ -1,4 +1,8 @@
-import {isClass} from '../../main/ts/util'
+import {
+  toClassMixin,
+  //toObjectMixin,
+  isClass
+} from '../../main/ts/util'
 
 describe('util', () => {
   describe('isClass', () => {
@@ -21,6 +25,32 @@ describe('util', () => {
       function Foo() { /* noop */ }
 
       expect(isClass(Foo)).toBeFalsy()
+    })
+  })
+
+  describe('toClassMixin', () => {
+    it('creates class based on object', () => {
+      const foo = {foo() { return 'foo' }}
+      const Foo = toClassMixin(foo)
+      const _foo= new Foo()
+
+      expect(_foo.foo()).toBe('foo')
+
+      // @ts-ignore
+      expect(_foo.bar).toBeUndefined
+    })
+
+    it('returns class argument as is', () => {
+      class Foo {
+        foo() { return 'foo' }
+      }
+      const foo= new Foo()
+
+      expect(toClassMixin(Foo)).toBe(Foo)
+      expect(foo.foo()).toBe('foo')
+
+      // @ts-ignore
+      expect(foo.bar).toBeUndefined
     })
   })
 })

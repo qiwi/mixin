@@ -1,4 +1,4 @@
-import {UnionToIntersection} from "./interface";
+import {IConstructable, UnionToIntersection} from "./interface";
 
 export const isEs5Class = (fn: any): boolean =>
   typeof fn === 'function'
@@ -32,3 +32,14 @@ export const mergeDescriptors = <T, U extends any[]>(target: T, ...mixins: U): T
 
     return m
   }, target)
+
+export const toClassMixin = <T>(target: T)=>
+  (isClass(target)
+    ? target
+    : class {
+      constructor() {
+        mergeDescriptors(this, target)
+      }
+    }) as IConstructable<T> & T
+
+export const toObjectMixin = () => {}
