@@ -18,7 +18,9 @@ const b: IB = {
   b() { return 'b' }
 }
 
-const c: IA & IB = applyMixins({}, A, b)
+const c = applyMixins({}, A, b)
+c.a() // 'a'
+c.b() // 'b'
 ```
 
 ## Questions
