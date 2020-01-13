@@ -181,6 +181,5 @@ describe('applyMixins', () => {
       // @ts-ignore
       expect(m.e).toBeUndefined()
     })
-
   })
 })
