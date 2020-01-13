@@ -1,6 +1,6 @@
 import {
   toClassMixin,
-  //toObjectMixin,
+  toObjectMixin,
   isClass
 } from '../../main/ts/util'
 
@@ -37,7 +37,7 @@ describe('util', () => {
       expect(_foo.foo()).toBe('foo')
 
       // @ts-ignore
-      expect(_foo.bar).toBeUndefined
+      expect(_foo.bar).toBeUndefined()
     })
 
     it('returns class argument as is', () => {
@@ -48,9 +48,31 @@ describe('util', () => {
 
       expect(toClassMixin(Foo)).toBe(Foo)
       expect(foo.foo()).toBe('foo')
-
       // @ts-ignore
-      expect(foo.bar).toBeUndefined
+      expect(foo.bar).toBeUndefined()
+    })
+  })
+
+  describe('toObjectMixin', () => {
+    it('represents class as object', () => {
+      class Foo {
+        foo() { return 'foo' }
+      }
+      const foo = toObjectMixin(Foo)
+
+      expect(foo.foo()).toBe('foo')
+      // @ts-ignore
+      expect(foo.bar).toBeUndefined()
+    })
+
+    it('returns object-like argument as is', () => {
+      const foo = {foo() { return 'foo' }}
+      const _foo = toObjectMixin(foo)
+
+      expect(_foo).toBe(foo)
+      expect(_foo.foo()).toBe('foo')
+      // @ts-ignore
+      expect(_foo.bar).toBeUndefined()
     })
   })
 })

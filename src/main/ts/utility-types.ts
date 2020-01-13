@@ -6,6 +6,10 @@ export type InstanceTypeOrNever<T> = T extends IConstructable
   ? InstanceType<T>
   : never
 
+export type InstanceTypeOrType<T> = T extends IConstructable
+  ? InstanceType<T>
+  : T
+
 export type UnionToInstanceTypeIntersection<U> = (U extends any
   ? (k: InstanceTypeOrNever<U>) => void
   : never) extends (k: infer I) => void
