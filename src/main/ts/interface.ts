@@ -1,3 +1,6 @@
+/** @module @antongolub/mixin */
+/** */
+
 import {IAnyMap, UnionToIntersection} from '@qiwi/substrate'
 
 export * from './utility-types'
