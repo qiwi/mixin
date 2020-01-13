@@ -6,13 +6,16 @@ import {
   IAnyMap,
   IConstructable,
   UnionToIntersection,
-  UnionToInstanceTypeIntersection
+  UnionToIntersectionOfInstanceType,
+  UnionToIntersectionOfInstanceTypeOrType
 } from './interface'
 
 import {
   mergeProto,
   mergeDescriptors,
-  isClass
+  isClass,
+  toClassMixin,
+  toObjectMixin
 } from './util'
 
 export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) => new Proxy(target, {
@@ -26,10 +29,7 @@ export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMa
 }) as T & UnionToIntersection<U[number]>
 
 export const applyMixinsAsMerge: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) =>
-  mixins.reduce(
-    (m, v) => Object.assign(m, v),
-    target
-  ) as T & UnionToIntersection<U[number]>
+  mergeDescriptors(target, ...mixins) as T & UnionToIntersection<U[number]>
 
 // NOTE typeof Class does not equal to class type itself, so U[number] hook is incompatible here
 export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>(target: T, ...mixins: U) => {
@@ -42,7 +42,7 @@ export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>
 
   return applyMixinsAsProto(Mixed, target, ...mixins) as T
     & UnionToIntersection<U[number]>
-    & IConstructable<InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>>
+    & IConstructable<InstanceType<T> & UnionToIntersectionOfInstanceType<U[number]>>
 }
 
 export const applyMixinsAsProto = <T extends IConstructable, U extends IConstructable[]>(target: T, ...mixins: U) => {
@@ -51,13 +51,14 @@ export const applyMixinsAsProto = <T extends IConstructable, U extends IConstruc
 
   return target as T
     & UnionToIntersection<U[number]>
-    & IConstructable<InstanceType<T> & UnionToInstanceTypeIntersection<U[number]>>
+    & IConstructable<InstanceType<T> & UnionToIntersectionOfInstanceType<U[number]>>
 }
 
 export const applyMixins = <T, U extends any[]>(target: T, ...mixins: U) =>
-  isClass(target)
-    ? applyMixinsAsSubclass(target as T & IConstructable, ...mixins)
-    : applyMixinsAsMerge(target, ...mixins) as T
-      & UnionToIntersection<U[number]>
-      & IConstructable<InstanceType<T & IConstructable> & UnionToInstanceTypeIntersection<U[number]>>
+  (isClass(target)
+    ? applyMixinsAsSubclass(target as T & IConstructable, ...mixins.map(toClassMixin))
+    : applyMixinsAsMerge(target, ...mixins.map(toObjectMixin))
+  ) as T
+      & UnionToIntersectionOfInstanceTypeOrType<U[number]>
+      & IConstructable<InstanceType<T & IConstructable> & UnionToIntersectionOfInstanceTypeOrType<U[number]>>
 

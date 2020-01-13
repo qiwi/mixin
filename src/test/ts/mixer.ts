@@ -150,5 +150,37 @@ describe('applyMixins', () => {
       // @ts-ignore
       expect(m.d).toBeUndefined()
     })
+
+    it('combines different types of arguments', () => {
+      const foo = applyMixins({}, a, BCtor)
+      const Bar = applyMixins(ACtor, b, DCtor)
+      const bar = new Bar()
+
+      expect(foo.a()).toBe('a')
+      expect(foo.b()).toBe('A')
+      // @ts-ignore
+      expect(foo.d).toBeUndefined()
+
+      expect(bar.a()).toBe('a')
+      expect(bar.b()).toBe('A')
+      expect(bar.d()).toBe(1)
+      // @ts-ignore
+      expect(foo.e).toBeUndefined()
+    })
+
+    it('looks to be composable', () => {
+      const M = applyMixins(Blank, ACtor, applyMixins(BCtor, DCtor))
+      const m = new M()
+
+      expect(m).toBeInstanceOf(M)
+      expect(m).toBeInstanceOf(Blank)
+      expect(m.a()).toBe('a')
+      expect(m.b()).toBe('A')
+      expect(m.d()).toBe(1)
+
+      // @ts-ignore
+      expect(m.e).toBeUndefined()
+    })
+
   })
 })

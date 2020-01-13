@@ -31,7 +31,8 @@ export const mergeDescriptors = <T, U extends any[]>(target: T, ...mixins: U): T
       Object.defineProperty(
         m,
         name,
-        Object.getOwnPropertyDescriptor(v, name) as PropertyDescriptor)
+        Object.getOwnPropertyDescriptor(v, name) as PropertyDescriptor
+      )
     })
 
     return m
@@ -48,7 +49,7 @@ export const toClassMixin = <T>(target: T)=>
 
 export const toObjectMixin = <T extends any>(target: T) =>
   (isClass(target)
-    ? mergeDescriptors({}, target.prototype)
+    ? target.prototype
     : target
   ) as InstanceTypeOrType<T>
 
