@@ -7,7 +7,7 @@ export {IAnyMap, UnionToIntersection}
 /**
  * Something to be mixed into the target object
  */
-export type IAdmixture<T=IAnyMap> = {
+export type IAdmixture<T= IAnyMap> = {
   [P in keyof T]: T[P]
 }
 

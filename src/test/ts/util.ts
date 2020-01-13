@@ -1,7 +1,7 @@
 import {
   toClassMixin,
   toObjectMixin,
-  isClass
+  isClass,
 } from '../../main/ts/util'
 
 describe('util', () => {
@@ -15,7 +15,9 @@ describe('util', () => {
     it('detects ES5 class (as much as possible)', () => {
       function Foo() { /* noop */ }
       Foo.prototype = {
-        foo() { return 'foo' }
+        foo() {
+          return 'foo'
+        },
       }
 
       expect(isClass(Foo)).toBeTruthy()
@@ -30,9 +32,13 @@ describe('util', () => {
 
   describe('toClassMixin', () => {
     it('creates class based on object', () => {
-      const foo = {foo() { return 'foo' }}
+      const foo = {
+        foo() {
+          return 'foo'
+        },
+      }
       const Foo = toClassMixin(foo)
-      const _foo= new Foo()
+      const _foo = new Foo()
 
       expect(_foo.foo()).toBe('foo')
 
@@ -42,9 +48,13 @@ describe('util', () => {
 
     it('returns class argument as is', () => {
       class Foo {
-        foo() { return 'foo' }
+
+        foo() {
+          return 'foo'
+        }
+
       }
-      const foo= new Foo()
+      const foo = new Foo()
 
       expect(toClassMixin(Foo)).toBe(Foo)
       expect(foo.foo()).toBe('foo')
@@ -56,7 +66,11 @@ describe('util', () => {
   describe('toObjectMixin', () => {
     it('represents class as object', () => {
       class Foo {
-        foo() { return 'foo' }
+
+        foo() {
+          return 'foo'
+        }
+
       }
       const foo = toObjectMixin(Foo)
 
@@ -66,7 +80,11 @@ describe('util', () => {
     })
 
     it('returns object-like argument as is', () => {
-      const foo = {foo() { return 'foo' }}
+      const foo = {
+        foo() {
+          return 'foo'
+        },
+      }
       const _foo = toObjectMixin(foo)
 
       expect(_foo).toBe(foo)

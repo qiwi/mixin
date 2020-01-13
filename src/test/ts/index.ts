@@ -3,7 +3,7 @@ import {
   applyMixinsAsMerge,
   applyMixinsAsSubclass,
   applyMixinsAsProto,
-  applyMixins
+  applyMixins,
 } from '../../main/ts'
 
 describe('index', () => {

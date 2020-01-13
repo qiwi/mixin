@@ -3,7 +3,7 @@ import {
   applyMixinsAsMerge,
   applyMixinsAsSubclass,
   applyMixinsAsProto,
-  applyMixins
+  applyMixins,
 } from '../../main/ts/mixer'
 
 describe('applyMixins', () => {
@@ -36,27 +36,39 @@ describe('applyMixins', () => {
   } as C
 
   class ACtor implements A {
+
     a() {
       return 'a'
     }
-    static foo() {return 'foo'}
+    static foo() {
+      return 'foo'
+    }
+
   }
+
   class BCtor extends ACtor implements B {
+
     b() {
       return this.a().toUpperCase()
     }
-    static bar() {return 'bar'}
+    static bar() {
+      return 'bar'
+    }
+
   }
+
   class DCtor implements D {
+
     d() {
       return 1
     }
+
   }
   class Blank {}
 
   describe('applyMixinsAsProxy', () => {
     it('attaches mixins as a proxy', () => {
-      type ITarget = {foo: string}
+      type ITarget = { foo: string }
       const t: ITarget = {foo: 'bar'}
       const t2 = applyMixinsAsProxy(t, a, b, c)
 
@@ -70,7 +82,7 @@ describe('applyMixins', () => {
 
   describe('applyMixinsAsMerge', () => {
     it('attaches mixins through object assignment', () => {
-      type ITarget = {foo: string}
+      type ITarget = { foo: string }
       const t: ITarget = {foo: 'bar'}
       const t2 = applyMixinsAsMerge(t, a, b, c)
 
@@ -105,9 +117,11 @@ describe('applyMixins', () => {
   describe('applyMixinsAsProto', () => {
     it('extends target class proto and statics with externals', () => {
       class Target {
+
         method() {
           return 'value'
         }
+
       }
       const Derived = applyMixinsAsProto(Target, ACtor, BCtor, DCtor, Blank)
       const m = new Derived()

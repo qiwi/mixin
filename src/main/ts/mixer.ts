@@ -7,7 +7,7 @@ import {
   IConstructable,
   UnionToIntersection,
   UnionToIntersectionOfInstanceType,
-  UnionToIntersectionOfInstanceTypeOrType
+  UnionToIntersectionOfInstanceTypeOrType,
 } from './interface'
 
 import {
@@ -15,7 +15,7 @@ import {
   mergeDescriptors,
   isClass,
   toClassMixin,
-  toObjectMixin
+  toObjectMixin,
 } from './util'
 
 export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) => new Proxy(target, {
@@ -29,15 +29,17 @@ export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMa
 }) as T & UnionToIntersection<U[number]>
 
 export const applyMixinsAsMerge: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) =>
-  mergeDescriptors(target, ...mixins) as T & UnionToIntersection<U[number]>
+  mergeDescriptors(target, ...mixins)
 
 // NOTE typeof Class does not equal to class type itself, so U[number] hook is incompatible here
 export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>(target: T, ...mixins: U) => {
   class Mixed extends target {
+
     constructor(...args: any[]) {
       super(...args)
       applyMixinsAsMerge(this, ...mixins.map(M => new M(...args)))
     }
+
   }
 
   return applyMixinsAsProto(Mixed, target, ...mixins) as T
@@ -61,4 +63,3 @@ export const applyMixins = <T, U extends any[]>(target: T, ...mixins: U) =>
   ) as T
       & UnionToIntersectionOfInstanceTypeOrType<U[number]>
       & IConstructable<InstanceType<T & IConstructable> & UnionToIntersectionOfInstanceTypeOrType<U[number]>>
-

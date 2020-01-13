@@ -1,7 +1,7 @@
 import {
   IConstructable,
   InstanceTypeOrType,
-  UnionToIntersection
+  UnionToIntersection,
 } from './interface'
 
 export const isEs5Class = (fn: any): boolean =>
@@ -15,7 +15,6 @@ export const isEs6Class = (fn: any): boolean =>
   typeof fn === 'function'
     && typeof fn.prototype.constructor === 'function'
       && /^class\s/.test(Function.prototype.toString.call(fn))
-
 
 export const isClass = (fn: any): boolean => isEs6Class(fn) || isEs5Class(fn)
 
@@ -31,14 +30,14 @@ export const mergeDescriptors = <T, U extends any[]>(target: T, ...mixins: U): T
       Object.defineProperty(
         m,
         name,
-        Object.getOwnPropertyDescriptor(v, name) as PropertyDescriptor
+        Object.getOwnPropertyDescriptor(v, name) as PropertyDescriptor,
       )
     })
 
     return m
   }, target)
 
-export const toClassMixin = <T>(target: T)=>
+export const toClassMixin = <T>(target: T) =>
   (isClass(target)
     ? target
     : class {
@@ -52,4 +51,3 @@ export const toObjectMixin = <T extends any>(target: T) =>
     ? target.prototype
     : target
   ) as InstanceTypeOrType<T>
-
