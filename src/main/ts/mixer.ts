@@ -3,11 +3,13 @@
 
 import {
   IApplier,
+  IClassApplier,
+  IObjectApplier,
   IAnyMap,
   IConstructable,
-  UnionToIntersection,
-  UnionToIntersectionOfInstanceType,
-  UnionToIntersectionOfInstanceTypeOrType,
+  IMixedAsObject,
+  IMixedAsClass,
+  IMixed,
 } from './interface'
 
 import {
@@ -18,7 +20,7 @@ import {
   toObjectMixin,
 } from './util'
 
-export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) => {
+export const applyMixinsAsProxy: IObjectApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) => {
   mixins.reverse() // lifo
 
   return new Proxy(target, {
@@ -29,14 +31,14 @@ export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMa
         ? mixin[prop]
         : obj[prop]
     },
-  }) as T & UnionToIntersection<U[number]>
+  }) as IMixedAsObject<T, U>
 }
 
-export const applyMixinsAsMerge: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) =>
-  mergeDescriptors(target, ...mixins)
+export const applyMixinsAsMerge: IObjectApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) =>
+  mergeDescriptors(target, ...mixins) as IMixedAsObject<T, U>
 
 // NOTE typeof Class does not equal to class type itself, so U[number] hook is incompatible here
-export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>(target: T, ...mixins: U) => {
+export const applyMixinsAsSubclass: IClassApplier = <T extends IConstructable, U extends IConstructable[]>(target: T, ...mixins: U) => {
   class Mixed extends target {
 
     constructor(...args: any[]) {
@@ -46,24 +48,18 @@ export const applyMixinsAsSubclass = <T extends IConstructable, U extends any[]>
 
   }
 
-  return applyMixinsAsProto(Mixed, target, ...mixins) as T
-    & UnionToIntersection<U[number]>
-    & IConstructable<InstanceType<T> & UnionToIntersectionOfInstanceType<U[number]>>
+  return applyMixinsAsProto(Mixed, target, ...mixins) as IMixedAsClass<T & IConstructable, U>
 }
 
-export const applyMixinsAsProto = <T extends IConstructable, U extends IConstructable[]>(target: T, ...mixins: U) => {
+export const applyMixinsAsProto: IClassApplier = <T, U extends IConstructable[]>(target: T, ...mixins: U) => {
   mergeProto(target, ...mixins)
   mergeDescriptors(target, ...mixins)
 
-  return target as T
-    & UnionToIntersection<U[number]>
-    & IConstructable<InstanceType<T> & UnionToIntersectionOfInstanceType<U[number]>>
+  return target as IMixedAsClass<T & IConstructable, U>
 }
 
-export const applyMixins = <T, U extends any[]>(target: T, ...mixins: U) =>
+export const applyMixins: IApplier = <T, U extends any[]>(target: T, ...mixins: U) =>
   (isClass(target)
     ? applyMixinsAsSubclass(target as T & IConstructable, ...mixins.map(toClassMixin))
     : applyMixinsAsMerge(target, ...mixins.map(toObjectMixin))
-  ) as T
-      & UnionToIntersectionOfInstanceTypeOrType<U[number]>
-      & IConstructable<InstanceType<T & IConstructable> & UnionToIntersectionOfInstanceTypeOrType<U[number]>>
+  ) as IMixed<T, U>

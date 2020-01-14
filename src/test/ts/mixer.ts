@@ -172,7 +172,7 @@ describe('applyMixins', () => {
 
     it('combines different types of arguments', () => {
       const foo = applyMixins({}, a, BCtor)
-      const Bar = applyMixins(ACtor, b, DCtor)
+      const Bar = applyMixins(ACtor, DCtor, b)
       const bar = new Bar()
 
       expect(foo.a()).toBe('a')
@@ -183,6 +183,7 @@ describe('applyMixins', () => {
       expect(bar.a()).toBe('a')
       expect(bar.b()).toBe('A')
       expect(bar.d()).toBe(1)
+
       // @ts-ignore
       expect(foo.e).toBeUndefined()
     })
@@ -209,10 +210,16 @@ describe('applyMixins', () => {
         b: () => string
       }
       class A implements IA {
-        a() { return 'a' }
+
+        a() {
+          return 'a'
+        }
+
       }
       const b: IB = {
-        b() { return 'b' }
+        b() {
+          return 'b'
+        },
       }
 
       const c = applyMixins({}, A, b)
