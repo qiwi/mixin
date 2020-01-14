@@ -24,6 +24,11 @@ describe('applyMixins', () => {
       return 'a'
     },
   }
+  const _a: A = {
+    a() {
+      return '_a'
+    },
+  }
   const b = {
     b() {
       return this.a().toUpperCase()
@@ -70,10 +75,10 @@ describe('applyMixins', () => {
     it('attaches mixins as a proxy', () => {
       type ITarget = { foo: string }
       const t: ITarget = {foo: 'bar'}
-      const t2 = applyMixinsAsProxy(t, a, b, c)
+      const t2 = applyMixinsAsProxy(t, a, b, c, _a)
 
-      expect(t2.c()).toBe('aA')
-      expect(t2.a()).toBe('a')
+      expect(t2.c()).toBe('_a_A')
+      expect(t2.a()).toBe('_a')
       expect(t2.foo).toBe('bar')
       // @ts-ignore
       expect(t2.d).toBeUndefined()

@@ -18,15 +18,19 @@ import {
   toObjectMixin,
 } from './util'
 
-export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) => new Proxy(target, {
-  get: (obj, prop: string) => {
-    const mixin = mixins.find(mixin => prop in mixin)
+export const applyMixinsAsProxy: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) => {
+  mixins.reverse() // lifo
 
-    return mixin
-      ? mixin[prop]
-      : obj[prop]
-  },
-}) as T & UnionToIntersection<U[number]>
+  return new Proxy(target, {
+    get: (obj, prop: string) => {
+      const mixin = mixins.find(mixin => prop in mixin)
+
+      return mixin
+        ? mixin[prop]
+        : obj[prop]
+    },
+  }) as T & UnionToIntersection<U[number]>
+}
 
 export const applyMixinsAsMerge: IApplier = <T extends IAnyMap, U extends IAnyMap[]>(target: T, ...mixins: U) =>
   mergeDescriptors(target, ...mixins)
