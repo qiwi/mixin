@@ -4,7 +4,7 @@ import {
   applyMixinsAsSubclass,
   applyMixinsAsProto,
   applyMixins,
-} from '../../main/ts/mixer'
+} from '../../main/ts'
 
 describe('applyMixins', () => {
   interface A {
@@ -199,6 +199,31 @@ describe('applyMixins', () => {
 
       // @ts-ignore
       expect(m.e).toBeUndefined()
+    })
+
+    it('works as in README example', () => {
+      interface IA {
+        a: () => string
+      }
+      interface IB {
+        b: () => string
+      }
+      class A implements IA {
+        a() { return 'a' }
+      }
+      const b: IB = {
+        b() { return 'b' }
+      }
+
+      const c = applyMixins({}, A, b)
+      c.a() // 'a'
+      c.b() // 'b'
+
+      const D = applyMixins(A, b)
+      const d = new D()
+
+      d.a() // 'a'
+      d.b() // 'b'
     })
   })
 })

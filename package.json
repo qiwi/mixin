@@ -1,7 +1,7 @@
 {
   "name": "@antongolub/mixin",
   "version": "0.0.0",
-  "description": "Self-education project to compare different mixin approaches in TypeScript",
+  "description": "RnD project to compare different mixin approaches in TypeScript",
   "main": "target/es6/index.js",
   "source": "src/main/ts/index.ts",
   "module": "target/bundle/mixin.mjs",

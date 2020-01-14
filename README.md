@@ -21,6 +21,12 @@ const b: IB = {
 const c = applyMixins({}, A, b)
 c.a() // 'a'
 c.b() // 'b'
+
+const D = applyMixins(A, b)
+const d = new d()
+
+d.a() // 'a'
+d.b() // 'b'
 ```
 
 ## Questions
