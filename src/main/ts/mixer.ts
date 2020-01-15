@@ -48,14 +48,14 @@ export const applyMixinsAsSubclass: IClassApplier = <T extends IConstructable, U
 
   }
 
-  return applyMixinsAsProto(Mixed, target, ...mixins) as IMixedAsClass<T & IConstructable, U>
+  return applyMixinsAsProto(Mixed, target, ...mixins) as IMixedAsClass<T, U>
 }
 
-export const applyMixinsAsProto: IClassApplier = <T, U extends IConstructable[]>(target: T, ...mixins: U) => {
+export const applyMixinsAsProto: IClassApplier = <T extends IConstructable, U extends IConstructable[]>(target: T, ...mixins: U) => {
   mergeProto(target, ...mixins)
   mergeDescriptors(target, ...mixins)
 
-  return target as IMixedAsClass<T & IConstructable, U>
+  return target as IMixedAsClass<T, U>
 }
 
 export const applyMixins: IApplier = <T, U extends any[]>(target: T, ...mixins: U) =>
