@@ -1,9 +1,9 @@
-# mixin
+# @qiwi/mixin
 RnD project to compare different mixin approaches in TypeScript.
 
 ## Usage
 ```typescript
-import {applyMixins} from '@antongolub/mixin'
+import {applyMixins} from '@qiwi/mixin'
 
 interface IA {
   a: () => string
@@ -23,7 +23,7 @@ c.a() // 'a'
 c.b() // 'b'
 
 const D = applyMixins(A, b)
-const d = new d()
+const d = new D()
 
 d.a() // 'a'
 d.b() // 'b'
@@ -95,20 +95,6 @@ Perhaps these are not perfect definitions, but we'll rely on them.
       },
     }) as P & M
     ```
-
-## ApplyMixins
-
- 
-Official TS documentation gives [the following mixin implementation](https://www.typescriptlang.org/docs/handbook/mixins.html)
-```typescript
-function applyMixins(derivedCtor: any, baseCtors: any[]) {
-    baseCtors.forEach(baseCtor => {
-        Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
-            Object.defineProperty(derivedCtor.prototype, name, Object.getOwnPropertyDescriptor(baseCtor.prototype, name));
-        });
-    });
-}
-```
 
 ## Refs
 * [https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c](https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c)

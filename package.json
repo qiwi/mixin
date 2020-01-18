@@ -1,5 +1,5 @@
 {
-  "name": "@antongolub/mixin",
+  "name": "@qiwi/mixin",
   "version": "0.0.0",
   "description": "RnD project to compare different mixin approaches in TypeScript",
   "main": "target/es6/index.js",
@@ -28,7 +28,7 @@
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
     "build:ts": "cp -r src/main/ts/ target/ts/",
     "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
-    "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @antongolub/mixin/target/es5 --name @antongolub/mixin --main @antongolub/mixin/target/es5/index --moduleResolution node",
+    "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/mixin/target/es5 --name @qiwi/mixin --main @qiwi/mixin/target/es5/index --moduleResolution node",
     "flowgen": "flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
     "libdef": "yarn dtsgen && yarn libdeffix && yarn flowgen",
     "libdeffix": "node -r esm ./scripts/js/libdef-fix.js --dts=./typings/index.d.ts",
@@ -92,7 +92,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antongolub/mixin.git"
+    "url": "git+https://github.com/qiwi/mixin.git"
   },
   "keywords": [
     "mixin",
@@ -101,7 +101,7 @@
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/antongolub/mixin/issues"
+    "url": "https://github.com/qiwi/mixin/issues"
   },
-  "homepage": "https://github.com/antongolub/mixin#readme"
+  "homepage": "https://github.com/qiwi/mixin#readme"
 }

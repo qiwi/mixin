@@ -1,4 +1,4 @@
-/** @module @antongolub/mixin */
+/** @module @qiwi/mixin */
 /** */
 
 import {

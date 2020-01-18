@@ -1,5 +1,5 @@
 {
-  "name": "@antongolub/mixin",
+  "name": "@qiwi/mixin",
   "mode": "modules",
   "out": "./docs",
   "target": "ES6",
