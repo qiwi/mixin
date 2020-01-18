@@ -43,7 +43,7 @@ export const applyMixinsAsSubclass: IClassApplier = <T extends IConstructable, U
 
     constructor(...args: any[]) {
       super(...args)
-      applyMixinsAsMerge(this, ...mixins.map(M => new M(...args)))
+      mergeDescriptors(this, ...mixins.map(M => new M(...args)))
     }
 
   }
