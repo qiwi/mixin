@@ -37,7 +37,7 @@ d.b() // 'b'
     > * A subclass factory 
     > * Proto merge + constructor invocation + type cast workarounds
 2. How to combine OOP and functional mixins?
-    > Apply diff merge strategies for each mixin type
+    > Apply different merge strategies for each target type and rest args converters
 3. How to check if composition has a given mixin or not?
     > Ref Cache / WeakMap
 4. What's about mixin factories?  
