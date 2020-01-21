@@ -2,11 +2,14 @@
 /** */
 
 import {
+  IAnyMap,
+  IConstructable,
+} from '@qiwi/substrate'
+
+import {
   IApplier,
   IClassApplier,
   IObjectApplier,
-  IAnyMap,
-  IConstructable,
   IMixedAsObject,
   IMixedAsClass,
   IMixed,

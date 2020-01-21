@@ -1,7 +1,10 @@
 import {
   IConstructable,
-  InstanceTypeOrType,
   UnionToIntersection,
+} from '@qiwi/substrate'
+
+import {
+  InstanceTypeOrType,
 } from './interface'
 
 export const isEs5Class = (fn: any): boolean =>

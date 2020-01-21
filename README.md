@@ -105,3 +105,4 @@ Perhaps these are not perfect definitions, but we'll rely on them.
 * [https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/](https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/)
 * [https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful](https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful)
 * [https://stackoverflow.com/questions/48372465/type-safe-mixin-decorator-in-typescript](https://stackoverflow.com/questions/48372465/type-safe-mixin-decorator-in-typescript)
+* [https://stackoverflow.com/questions/13407036/how-does-interfaces-with-construct-signatures-work](https://stackoverflow.com/questions/13407036/how-does-interfaces-with-construct-signatures-work)

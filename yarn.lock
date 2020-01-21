@@ -958,28 +958,28 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@qiwi/semantic-release-gh-pages-plugin@^1.15.7":
-  version "1.15.7"
-  resolved "https://registry.yarnpkg.com/@qiwi/semantic-release-gh-pages-plugin/-/semantic-release-gh-pages-plugin-1.15.7.tgz#22f973ad1ac88a84d3adfe9bc916521fa7c0dde3"
-  integrity sha512-gJj2YnEH8CorXIWMukxGwyiCLF3COhtaKb7o//X3kapKEF+oLK8ejYDRfmiU6CUEHUyIB8vyqvOX9BegOPImvA==
+"@qiwi/semantic-release-gh-pages-plugin@^1.15.8":
+  version "1.15.8"
+  resolved "https://registry.yarnpkg.com/@qiwi/semantic-release-gh-pages-plugin/-/semantic-release-gh-pages-plugin-1.15.8.tgz#ae592e663f0c87a24a8020c6732e3cef83db45a6"
+  integrity sha512-fjG1H79flRgbHkMPzhwaRp+05pi2QvM9RyVl9AErEU7LGFwAi4zupHWBPwi7ZiX1nivRxDcgqY1r9aeN1sjITA==
   dependencies:
     "@types/git-url-parse" "^9.0.0"
     aggregate-error "^3.0.1"
     dot "^1.1.3"
     execa "^4.0.0"
-    gh-pages "^2.1.1"
+    gh-pages "^2.2.0"
     git-url-parse "^11.1.2"
     lodash "^4.17.15"
     read-pkg "^5.2.0"
     sync-request "^6.1.0"
     tslib "^1.10.0"
 
-"@qiwi/substrate-abstract@^1.17.15":
-  version "1.17.16"
-  resolved "https://registry.yarnpkg.com/@qiwi/substrate-abstract/-/substrate-abstract-1.17.16.tgz#349dfa60d24f456f83ad4a650ed67a9fa11210c1"
-  integrity sha512-d3WiQpCy5b/7z71xvpR2A6ZpB/mLDocMbgAycTeT/vmwnrN8T9OfFlvT2E3B/QYpRnP+cec5FrT5a3xRW2Wc3Q==
+"@qiwi/substrate-abstract@^1.17.16":
+  version "1.17.17"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate-abstract/-/substrate-abstract-1.17.17.tgz#6092942258e82369a5f82aec06afa58fdb14015d"
+  integrity sha512-MqU5LHkFkdtcjrRnQ8id76JPVl0jLMtatTGMz8HkUX5STgWRwYp70aLSejAPj4kwHXdqbwtA0p9k5PXRgiZiYg==
   dependencies:
-    "@qiwi/substrate-types" "^1.22.0"
+    "@qiwi/substrate-types" "^1.23.0"
 
 "@qiwi/substrate-std@*":
   version "1.0.2"
@@ -993,19 +993,19 @@
   resolved "https://registry.yarnpkg.com/@qiwi/substrate-types/-/substrate-types-1.22.0.tgz#ae1f886cb348f36679a9adae834a3562c130b9f6"
   integrity sha512-C4Dxijkml0WyNX36mvQql6/DyAEV83YHcCsMoQDW6DRogfH53DJlFQfpgEq6oxCtBSRDg/HN8PlXLqZJRCW66Q==
 
-"@qiwi/substrate-types@^1.22.0":
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/substrate-types/-/substrate-types-1.23.0.tgz#03b89e4f464ee5fb3c829d91c54612081ccf9fa3"
-  integrity sha512-Lo7RMO5bbvY/sCRmLf2ex/+yYrDniMY+xOOWykOXvkRwW+LNhwjiRDa+ZZzAkbntUrvzecRSz9p5KaRiRRlYBA==
+"@qiwi/substrate-types@^1.23.0":
+  version "1.24.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate-types/-/substrate-types-1.24.0.tgz#c6f2d337a8c84328a1cbe745d85ec1b65b35690f"
+  integrity sha512-SDSiIPrpAV/jRz2KJO5/SSyAixTHPl0x6Ds0D0OQkNBJPdpZhcXjiHblUm6UgfnhfanqcWYmYDs2e7PXee80kw==
 
-"@qiwi/substrate@^1.18.3":
-  version "1.18.3"
-  resolved "https://registry.yarnpkg.com/@qiwi/substrate/-/substrate-1.18.3.tgz#95e451fcba15aceac2a5ce349ffc2ddfeaad2e92"
-  integrity sha512-aXZqogV+y1mlymw53dV4iv1pJ4hQLAM4zDkxvCiBrXkReAfLyfNP1wwmdMFT1NsrP8R5hQveU9Sls3tyht3SmA==
+"@qiwi/substrate@^1.18.4":
+  version "1.18.4"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate/-/substrate-1.18.4.tgz#628f5af91052bb1f841eb86ce1f8651fa6f59694"
+  integrity sha512-bQetp0lMPRuUL7Hnn3IqVEs7Qlhd5YSXRZSOLwp2IotVnLwPMQ0NyzWEqgnOFdQ/JZyODwSeYUihneJp/HOASg==
   dependencies:
-    "@qiwi/substrate-abstract" "^1.17.15"
+    "@qiwi/substrate-abstract" "^1.17.16"
     "@qiwi/substrate-std" "*"
-    "@qiwi/substrate-types" "^1.22.0"
+    "@qiwi/substrate-types" "^1.23.0"
 
 "@semantic-release/changelog@^3.0.6":
   version "3.0.6"
@@ -3484,15 +3484,6 @@ fs-extra@8.1.0, fs-extra@^8.0.0, fs-extra@^8.1.0:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
-fs-extra@^7.0.0:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-7.0.1.tgz#4f189c44aa123b895f722804f55ea23eadc348e9"
-  integrity sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==
-  dependencies:
-    graceful-fs "^4.1.2"
-    jsonfile "^4.0.0"
-    universalify "^0.1.0"
-
 fs-minipass@^1.2.5:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/fs-minipass/-/fs-minipass-1.2.7.tgz#ccff8570841e7fe4265693da88936c55aed7f7c7"
@@ -3626,19 +3617,17 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-gh-pages@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/gh-pages/-/gh-pages-2.1.1.tgz#5be70a92f9cb70404bafabd8bb149c0e9a8c264b"
-  integrity sha512-yNW2SFp9xGRP/8Sk2WXuLI/Gn92oOL4HBgudn6PsqAnuWT90Y1tozJoTfX1WdrDSW5Rb90kLVOf5mm9KJ/2fDw==
+gh-pages@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/gh-pages/-/gh-pages-2.2.0.tgz#74ebeaca8d2b9a11279dcbd4a39ddfff3e6caa24"
+  integrity sha512-c+yPkNOPMFGNisYg9r4qvsMIjVYikJv7ImFOhPIVPt0+AcRUamZ7zkGRLHz7FKB0xrlZ+ddSOJsZv9XAFVXLmA==
   dependencies:
     async "^2.6.1"
     commander "^2.18.0"
     email-addresses "^3.0.1"
     filenamify-url "^1.0.0"
-    fs-extra "^7.0.0"
+    fs-extra "^8.1.0"
     globby "^6.1.0"
-    graceful-fs "^4.1.11"
-    rimraf "^2.6.2"
 
 git-log-parser@^1.2.0:
   version "1.2.0"
@@ -3786,7 +3775,7 @@ handlebars@^4.1.2, handlebars@^4.4.0, handlebars@^4.5.3:
   optionalDependencies:
     uglify-js "^3.1.4"
 
-handlebars@^4.7.2:
+handlebars@^4.7.0:
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.2.tgz#01127b3840156a0927058779482031afe0e730d7"
   integrity sha512-4PwqDL2laXtTWZghzzCtunQUTLbo31pcCJrd/B/9JP8XbhVzpS5ZXuKqlOzsd1rtcaLo4KqAn8nl8mkknS4MHw==
@@ -9055,10 +9044,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typedoc-default-themes@^0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/typedoc-default-themes/-/typedoc-default-themes-0.7.2.tgz#1e9896f920b58e6da0bba9d7e643738d02405a5a"
-  integrity sha512-fiFKlFO6VTqjcno8w6WpTsbCgXmfPHVjnLfYkmByZE7moaz+E2DSpAT+oHtDHv7E0BM5kAhPrHJELP2J2Y2T9A==
+typedoc-default-themes@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/typedoc-default-themes/-/typedoc-default-themes-0.6.3.tgz#c214ce5bbcc6045558448a8fd422b90e3e9b6782"
+  integrity sha512-rouf0TcIA4M2nOQFfC7Zp4NEwoYiEX4vX/ZtudJWU9IHA29MPC+PPgSXYLPESkUo7FuB//GxigO3mk9Qe1xp3Q==
   dependencies:
     backbone "^1.4.0"
     jquery "^3.4.1"
@@ -9073,21 +9062,21 @@ typedoc-plugin-external-module-name@^3.0.0:
     lodash "^4.1.2"
     semver "^7.1.1"
 
-typedoc@0.16.7:
-  version "0.16.7"
-  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.16.7.tgz#00975cbe37fba3a69ec4b42827683303d9c89da9"
-  integrity sha512-sNrLlaZ/aZHxA2rCURGf3g5YabGVwrujiwC6SCV/rgx3LFfZh+goUCatAAyTEDk7evuu6pJ0APGDSde1mSYegw==
+typedoc@0.15.8:
+  version "0.15.8"
+  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.15.8.tgz#d83195445a718d173e0d5c73b5581052cb47d4d9"
+  integrity sha512-a0zypcvfIFsS7Gqpf2MkC1+jNND3K1Om38pbDdy/gYWX01NuJZhC5+O0HkIp0oRIZOo7PWrA5+fC24zkANY28Q==
   dependencies:
     "@types/minimatch" "3.0.3"
     fs-extra "^8.1.0"
-    handlebars "^4.7.2"
+    handlebars "^4.7.0"
     highlight.js "^9.17.1"
     lodash "^4.17.15"
     marked "^0.8.0"
     minimatch "^3.0.0"
     progress "^2.0.3"
     shelljs "^0.8.3"
-    typedoc-default-themes "^0.7.2"
+    typedoc-default-themes "^0.6.3"
     typescript "3.7.x"
 
 typescript-compiler@^1.4.1-2:

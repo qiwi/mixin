@@ -211,6 +211,9 @@ describe('applyMixins', () => {
       }
       class A implements IA {
 
+        constructor(param: number) {
+          console.log(param)
+        }
         a() {
           return 'a'
         }
@@ -227,7 +230,7 @@ describe('applyMixins', () => {
       c.b() // 'b'
 
       const D = applyMixins(A, b)
-      const d = new D()
+      const d: InstanceType<typeof D> = new D(1)
 
       d.a() // 'a'
       d.b() // 'b'
