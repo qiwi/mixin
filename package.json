@@ -45,6 +45,7 @@
     "tslib": "^1.10.0"
   },
   "devDependencies": {
+    "@qiwi/license": "^1.1.1",
     "@qiwi/semantic-release-gh-pages-plugin": "^1.15.8",
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/git": "^8.0.0",
