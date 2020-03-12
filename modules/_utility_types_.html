@@ -72,6 +72,7 @@
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_utility_types_.html#constuctableorempty" class="tsd-kind-icon">Constuctable<wbr>OrEmpty</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_utility_types_.html#iextendscondition" class="tsd-kind-icon">IExtends<wbr>Condition</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_utility_types_.html#instancetypeortype" class="tsd-kind-icon">Instance<wbr>Type<wbr>OrType</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_utility_types_.html#uniontointersectionofconstructables" class="tsd-kind-icon">Union<wbr>ToIntersection<wbr>OfConstructables</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_utility_types_.html#uniontointersectionofinstances" class="tsd-kind-icon">Union<wbr>ToIntersection<wbr>OfInstances</a></li>
@@ -85,10 +86,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="constuctableorempty" class="tsd-anchor"></a>
 					<h3>Constuctable<wbr>OrEmpty</h3>
-					<div class="tsd-signature tsd-kind-icon">Constuctable<wbr>OrEmpty&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T extends IConstructable ? T : __type</span></div>
+					<div class="tsd-signature tsd-kind-icon">Constuctable<wbr>OrEmpty&lt;T&gt;<span class="tsd-signature-symbol">:</span> <a href="_utility_types_.html#iextendscondition" class="tsd-signature-type">IExtendsCondition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">IConstructable</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/93f8735/src/main/ts/utility-types.ts#L7">utility-types.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/7ed8a39/src/main/ts/utility-types.ts#L9">utility-types.ts:9</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -99,12 +100,37 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-					<a name="instancetypeortype" class="tsd-anchor"></a>
-					<h3>Instance<wbr>Type<wbr>OrType</h3>
-					<div class="tsd-signature tsd-kind-icon">Instance<wbr>Type<wbr>OrType&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T extends IConstructable ? InstanceType&lt;T&gt; : T</span></div>
+					<a name="iextendscondition" class="tsd-anchor"></a>
+					<h3>IExtends<wbr>Condition</h3>
+					<div class="tsd-signature tsd-kind-icon">IExtends<wbr>Condition&lt;T, E, R1, R2&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">E</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">R1</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">R2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/93f8735/src/main/ts/utility-types.ts#L3">utility-types.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/7ed8a39/src/main/ts/utility-types.ts#L3">utility-types.ts:3</a></li>
+						</ul>
+					</aside>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>E</h4>
+						</li>
+						<li>
+							<h4>R1</h4>
+						</li>
+						<li>
+							<h4>R2</h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="instancetypeortype" class="tsd-anchor"></a>
+					<h3>Instance<wbr>Type<wbr>OrType</h3>
+					<div class="tsd-signature tsd-kind-icon">Instance<wbr>Type<wbr>OrType&lt;T&gt;<span class="tsd-signature-symbol">:</span> <a href="_utility_types_.html#iextendscondition" class="tsd-signature-type">IExtendsCondition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">IConstructable</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">InstanceType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">IConstructable</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/7ed8a39/src/main/ts/utility-types.ts#L7">utility-types.ts:7</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -117,10 +143,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="uniontointersectionofconstructables" class="tsd-anchor"></a>
 					<h3>Union<wbr>ToIntersection<wbr>OfConstructables</h3>
-					<div class="tsd-signature tsd-kind-icon">Union<wbr>ToIntersection<wbr>OfConstructables&lt;U&gt;<span class="tsd-signature-symbol">:</span> </div>
+					<div class="tsd-signature tsd-kind-icon">Union<wbr>ToIntersection<wbr>OfConstructables&lt;U&gt;<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/93f8735/src/main/ts/utility-types.ts#L11">utility-types.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/7ed8a39/src/main/ts/utility-types.ts#L11">utility-types.ts:11</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -133,10 +159,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="uniontointersectionofinstances" class="tsd-anchor"></a>
 					<h3>Union<wbr>ToIntersection<wbr>OfInstances</h3>
-					<div class="tsd-signature tsd-kind-icon">Union<wbr>ToIntersection<wbr>OfInstances&lt;U&gt;<span class="tsd-signature-symbol">:</span> </div>
+					<div class="tsd-signature tsd-kind-icon">Union<wbr>ToIntersection<wbr>OfInstances&lt;U&gt;<span class="tsd-signature-symbol">:</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/93f8735/src/main/ts/utility-types.ts#L17">utility-types.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/qiwi/mixin/blob/7ed8a39/src/main/ts/utility-types.ts#L17">utility-types.ts:17</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -169,6 +195,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_utility_types_.html#constuctableorempty" class="tsd-kind-icon">Constuctable<wbr>OrEmpty</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_utility_types_.html#iextendscondition" class="tsd-kind-icon">IExtends<wbr>Condition</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_utility_types_.html#instancetypeortype" class="tsd-kind-icon">Instance<wbr>Type<wbr>OrType</a>
