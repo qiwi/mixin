@@ -32,7 +32,7 @@
     "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/mixin/target/es5 --name @qiwi/mixin --main @qiwi/mixin/target/es5/index --moduleResolution node",
     "flowgen": "flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
     "libdef": "yarn dtsgen && yarn libdeffix && yarn flowgen",
-    "libdeffix": "node -r esm ./scripts/js/libdef-fix.js --dts=./typings/index.d.ts",
+    "libdeffix": "node -r esm ./scripts/js/libdef-fix.js --dts=./typings/index.d.ts  --prefix=@qiwi/mixin/target/es5",
     "test:report": "yarn test && yarn push:report",
     "push:report": "yarn coveralls:push",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls",
