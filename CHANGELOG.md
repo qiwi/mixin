@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/qiwi/mixin/compare/v1.0.0...v1.0.1) (2020-03-12)
+
+
+### Bug Fixes
+
+* correct d.ts ([2cef3e1](https://github.com/qiwi/mixin/commit/2cef3e14b520a2a1785181c01d99da9fc1bf357e))
+
 # 1.0.0 (2020-01-22)
 
 
