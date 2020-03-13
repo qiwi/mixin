@@ -170,11 +170,12 @@ describe('applyMixins', () => {
     it('handles object injections', () => {
       const n = (n: number): {n: number} => ({n})
       const m = <T>(t: T): T & {m: string} => ({...t, m: 'm'})
+      const k = <T>(t: T): T & {k: null} => ({...t, k: null})
 
-      const nm = applyMixinsAsPipe(n, m)
-      const res: {n: number, m: string} = nm(1)
+      const nm = applyMixinsAsPipe(n, m, k)
+      const res: {n: number, m: string, k: null} = nm(1)
 
-      expect(res).toEqual({n: 1, m: 'm'})
+      expect(res).toEqual({n: 1, m: 'm', k: null})
     })
   })
 

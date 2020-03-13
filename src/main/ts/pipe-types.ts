@@ -50,5 +50,12 @@ export type UnariesToPiped<F extends any[]> = {
     : F[K]
 }
 
+type ReturnTypeOrType<T> = T extends (...args: any[]) => infer R ? R : T
+
+export type PipeResult<U> = ((U extends any
+  ? (k: ReturnTypeOrType<U>) => void
+  : never
+  ) extends ((k: infer I) => void) ? I : never)
+
 export type IPipeApplier = <F extends any[]>(...funcs: UnariesToPiped<F>) =>
-  (i: ParameterUnary<UnaryOrIntersectionTypeFactory<F[0]>>) => ReturnType<UnariesToPiped<F>[PrevN<F['length']>]>
+  (i: ParameterUnary<UnaryOrIntersectionTypeFactory<F[0]>>) => PipeResult<F[number]>
