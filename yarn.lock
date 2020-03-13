@@ -9307,6 +9307,11 @@ trim-repeated@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
+ts-functionaltypes@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/ts-functionaltypes/-/ts-functionaltypes-1.0.6.tgz#ee026aa26179d78c9ff93473334d24016bb93e3f"
+  integrity sha512-QwumY5ULDozaBnDVvBxe6or56yDQMRY60h4G8uOX7k2pnb788zIdaz3guhg17tJSf4TGz3XvEw6gagZ/05dN8g==
+
 ts-jest@^25.2.1:
   version "25.2.1"
   resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-25.2.1.tgz#49bf05da26a8b7fbfbc36b4ae2fcdc2fef35c85d"
