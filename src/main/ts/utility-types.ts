@@ -19,3 +19,11 @@ export type UnionToIntersectionOfInstances<U> = (U extends any
   : never) extends (k: infer I) => void
     ? I
     : never
+
+export type Unary = (i: any) => any // TODO Move to substrate
+
+export type UnaryOrIntersectionTypeFactory<T> = IExtendsCondition<T, Unary, T, <V>(v: V) => V & T>
+
+// Util to prepend a value to a Tuple from: https://stackoverflow.com/a/54607819/5308589
+export type PrependTuple<A, T extends Array<any>> =
+  (((a: A, ...b: T) => void) extends (...a: infer I) => void ? I : [])

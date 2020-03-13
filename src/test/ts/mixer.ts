@@ -3,7 +3,7 @@ import {
   applyMixinsAsMerge,
   applyMixinsAsSubclass,
   applyMixinsAsProto,
-  applyMixinsAsFactory,
+  applyMixinsAsPipe,
   applyMixins,
 } from '../../main/ts'
 
@@ -145,7 +145,7 @@ describe('applyMixins', () => {
     })
   })
 
-  fdescribe('applyMixinsAsFactory', () => {
+  describe('applyMixinsAsFactory', () => {
     it('composes several factories', () => {
       const n = (n: number) => ({n})
       const m = ({n}: {n: number}) => ({n: 2 * n})
@@ -153,12 +153,12 @@ describe('applyMixins', () => {
       const e = <T extends {}>(e: T): T & {foo: string} => ({...e, foo: 'foo'})
       const i = <T extends {foo: number}>(i: T): T => i
 
-      const nm = applyMixinsAsFactory(n, m)
-      const ie = applyMixinsAsFactory(i, e)
+      const nm = applyMixinsAsPipe(n, m)
+      const ie = applyMixinsAsPipe(i, e)
       // @ts-ignore
-      const nk = applyMixinsAsFactory(n, k)
+      const nk = applyMixinsAsPipe(n, k)
       // @ts-ignore
-      const ei = applyMixinsAsFactory(e, i)
+      const ei = applyMixinsAsPipe(e, i)
 
       const v1: number = nm(2).n
       const v2: string = ie({foo: 1}).foo
@@ -171,7 +171,7 @@ describe('applyMixins', () => {
       const n = (n: number): {n: number} => ({n})
       const m = <T>(t: T): T & {m: string} => ({...t, m: 'm'})
 
-      const nm = applyMixinsAsFactory(n, m)
+      const nm = applyMixinsAsPipe(n, m)
       const res: {n: number, m: string} = nm(1)
 
       expect(res).toEqual({n: 1, m: 'm'})

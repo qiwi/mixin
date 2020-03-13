@@ -5,7 +5,8 @@ import {
 
 import {
   InstanceTypeOrType,
-} from './interface'
+  UnaryOrIntersectionTypeFactory,
+} from './utility-types'
 
 export const isFunction = (fn: any): boolean =>
   typeof fn === 'function'
@@ -56,3 +57,9 @@ export const toObjectMixin = <T extends any>(target: T) =>
     ? target.prototype
     : target
   ) as InstanceTypeOrType<T>
+
+export const toPipeMixin = <T>(target: T) =>
+  (typeof target === 'function'
+      ? target
+      : <T>(i: T) => ({...i, ...target})
+  ) as UnaryOrIntersectionTypeFactory<T>
