@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/qiwi/mixin/compare/v1.0.1...v1.1.0) (2020-03-13)
+
+
+### Bug Fixes
+
+* tune up applyAsPipe result ([394f2f6](https://github.com/qiwi/mixin/commit/394f2f64264fcf656533a59fccaebe2ea51ec88a))
+
+
+### Features
+
+* add functional mixin applier ([3b9a49c](https://github.com/qiwi/mixin/commit/3b9a49c4b182f91f994be33f5dec3870f7f7cf61))
+
 ## [1.0.1](https://github.com/qiwi/mixin/compare/v1.0.0...v1.0.1) (2020-03-12)
 
 
