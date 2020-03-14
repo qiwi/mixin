@@ -95,6 +95,15 @@ Perhaps these are not perfect definitions, but we'll rely on them.
       },
     }) as P & M
     ```
+5. Functional mixin piping
+    ```typescript
+    const foo = <T>(t: T): T & {foo: string} => ({...t, foo: 'foo'})
+    const bar = <T>(t: T): T & {bar: number} => ({...t, bar: 1})
+    const foobar = pipe(foo, bar) // smth, that composes fn mixins like `(target) => bar(foo(target))`
+    const target = {}
+    
+    const res = foobar(target)
+    ```
 
 ## Refs
 * [https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c](https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c)
@@ -102,6 +111,7 @@ Perhaps these are not perfect definitions, but we'll rely on them.
 * [https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/](https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/)
 * [https://github.com/justinfagnani/mixwith.js](https://github.com/justinfagnani/mixwith.js)
 * [https://github.com/amercier/es6-mixin](https://github.com/amercier/es6-mixin)
+* [https://github.com/Kotarski/ts-functionaltypes](https://github.com/Kotarski/ts-functionaltypes)
 * [https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/](https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/)
 * [https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful](https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful)
 * [https://stackoverflow.com/questions/48372465/type-safe-mixin-decorator-in-typescript](https://stackoverflow.com/questions/48372465/type-safe-mixin-decorator-in-typescript)
