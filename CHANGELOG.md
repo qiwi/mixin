@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/qiwi/mixin/compare/v1.1.0...v1.1.1) (2020-03-17)
+
+
+### Bug Fixes
+
+* **dts:** handle dynamic type imports ([4246073](https://github.com/qiwi/mixin/commit/424607329c08011ebc90a4ad32d951476db7739e))
+
 # [1.1.0](https://github.com/qiwi/mixin/compare/v1.0.1...v1.1.0) (2020-03-13)
 
 
