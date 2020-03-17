@@ -177,6 +177,15 @@ describe('applyMixins', () => {
 
       expect(res).toEqual({n: 1, m: 'm', k: null})
     })
+
+    it('verifies result type matches target T', () => {
+      const a = (i: {a: number}): {a: number} => (i)
+      const b = <T>(t: T): T & {b: string} => ({...t, b: 'b'})
+      const ab = applyMixinsAsPipe(a, b)
+      const expected: ReturnType<typeof ab> = {a: 1, b: 'b'}
+
+      expect(ab({a: 1})).toEqual(expected)
+    })
   })
 
   describe('applyMixins', () => {
