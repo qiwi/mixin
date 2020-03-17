@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/qiwi/mixin/compare/v1.1.1...v1.1.2) (2020-03-17)
+
+
+### Bug Fixes
+
+* **package:** use es5 as def format ([4c1ca87](https://github.com/qiwi/mixin/commit/4c1ca87cf540980c4cad666decea723397c6dbee))
+
 ## [1.1.1](https://github.com/qiwi/mixin/compare/v1.1.0...v1.1.1) (2020-03-17)
 
 
