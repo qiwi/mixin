@@ -10,6 +10,7 @@ const IMPORT_MAIN_PATTERN = /\timport main = require\('(.+)'\);/g
 const IMPORT_MAIN_LINE_PATTERN = /^\timport main = require\('(.+)'\);$/
 const BROKEN_MODULE_NAME = /(declare module '.+\/target\/es5\/)[^/]*\/src\/main\/index'.+/
 const IMPORT = /(import|export) .+ from '(.+)'/g
+const DYNAMIC_TYPE_IMPORT = /import\(".+"\)\./g
 const REFERENCE = /\/\/\/.+/
 const EOF = /$/
 
@@ -44,6 +45,7 @@ const options = {
     REFERENCE,
     /^\s*[\r\n]/gm,
     IMPORT,
+    DYNAMIC_TYPE_IMPORT,
     EOF
   ],
   to: [
@@ -67,6 +69,29 @@ const options = {
         : module.replace(prefix + '/', '')
 
       return `${pre}${name}${post}`
+    },
+    line => {
+      const imports = line.match(/(import\(")([^"]+)("\)\.)/g)
+
+      return imports.reduce((m, i) => {
+        const re = /^(.*import\(")([^:]+)("\)\..*)$/
+        const [, pre, module, post] = i.match(re)
+
+        let name
+
+        // local module
+        if (module.charAt(0) === '.') {
+          name = prefix + module.slice(1)
+        } else {
+          name = module
+        }
+
+        if (name.charAt(name.length - 1) === '*') {
+          name = name.slice(0, -2) // handle '@qiwi/substrate/*'
+        }
+
+        return m.replace(i, `${pre}${name}${post}`)
+      }, line)
     },
     line => makeAliases(declaredModules)
   ],
