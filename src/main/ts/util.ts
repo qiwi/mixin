@@ -1,4 +1,4 @@
-import type {
+import {
   IConstructable,
   UnionToIntersection,
 } from '@qiwi/substrate'
