@@ -170,7 +170,7 @@ describe('applyMixins', () => {
     it('handles object injections', () => {
       const n = (n: number): {n: number} => ({n})
       const m = <T>(t: T): T & {m: string} => ({...t, m: 'm'})
-      const k = <T>(t: T): T & {k: null} => ({...t, k: null})
+      const k = <T extends {m: string}>(t: T): T & {k: null} => ({...t, k: null})
 
       const nm = applyMixinsAsPipe(n, m, k)
       const res: {n: number, m: string, k: null} = nm(1)

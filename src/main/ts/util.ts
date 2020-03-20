@@ -61,5 +61,5 @@ export const toObjectMixin = <T extends any>(target: T) =>
 export const toPipeMixin = <T>(target: T) =>
   (typeof target === 'function'
       ? target
-      : <T>(i: T) => ({...i, ...target})
+      : <I>(i: I) => ({...i, ...target})
   ) as UnaryOrIntersectionTypeFactory<T>

@@ -5,27 +5,19 @@ import {
   UnaryOrIntersectionTypeFactory,
 } from './utility-types'
 
+import {
+  SNumbers,
+  Numbers,
+  Ranges,
+} from './pipe-types-magic'
+
 // Adapted from https://github.com/Kotarski/ts-functionaltypes
-
-// tslint:disable no-multi-spaces
-export type SNumbers = [
-  '0',  '1',  '2',  '3',  '4',  '5',  '6',  '7',  '8',  '9',  '10', '11', '12', '13', '14', '15',
-  '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31',
-  '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47',
-  '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63']
-
-export type Numbers = [
-  0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15,
-  16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
-  32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
-  48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
-// tslint:enable no-multi-spaces
 
 // Get the previous number (for indexing)    (2=>1, 1=>0, 0=>never)
 export type PrevN<T extends number> = PrependTuple<never, Numbers>[T]
 
 // Convert a string index to a number
-export type S_N<S extends SNumbers[number]> = {
+export type S2N<S extends SNumbers[number]> = {
   [K in SNumbers[number]]: Numbers[K]
 }[S]
 
@@ -44,9 +36,9 @@ export type UnariesToPiped<F extends any[]> = {
       : IExtendsCondition<
         F[K],
         Unary,
-        (i: ReturnType<F[PrevN<S_N<K>>]>) => ReturnType<F[PrevN<S_N<K>>]> & ReturnType<F[S_N<K>]>,
+        (i: PipeResult<F[Ranges[PrevN<S2N<K>>]]>) => PipeResult<F[Ranges[PrevN<S2N<K>>]]> & ReturnType<F[S2N<K>]>,
         F[K]
-        >
+      >
     : F[K]
 }
 
