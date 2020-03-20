@@ -107,6 +107,9 @@ Perhaps these are not perfect definitions, but we'll rely on them.
 
 ## Refs
 * [https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c](https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c)
+* [https://medium.com/ackee/typescript-function-composition-and-recurrent-types-a9efbc8e7736](https://medium.com/ackee/typescript-function-composition-and-recurrent-types-a9efbc8e7736)
+* [https://dev.to/miracleblue/how-2-typescript-get-the-last-item-type-from-a-tuple-of-types-3fh3](https://dev.to/miracleblue/how-2-typescript-get-the-last-item-type-from-a-tuple-of-types-3fh3)
+* [https://dev.to/ascorbic/creating-a-typed-compose-function-in-typescript-3-351i](https://dev.to/ascorbic/creating-a-typed-compose-function-in-typescript-3-351i)
 * [https://mariusschulz.com/blog/mixin-classes-in-typescript](https://mariusschulz.com/blog/mixin-classes-in-typescript)
 * [https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/](https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/)
 * [https://github.com/justinfagnani/mixwith.js](https://github.com/justinfagnani/mixwith.js)
