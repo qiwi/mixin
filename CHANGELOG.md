@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/qiwi/mixin/compare/v1.1.2...v1.1.3) (2020-03-20)
+
+
+### Bug Fixes
+
+* merge reduced type with the entire all prev accumulated type intersection ([62660f1](https://github.com/qiwi/mixin/commit/62660f113b650dfefddb362810fcc6aae9d3b6f6))
+
 ## [1.1.2](https://github.com/qiwi/mixin/compare/v1.1.1...v1.1.2) (2020-03-17)
 
 
