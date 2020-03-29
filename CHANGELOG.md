@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/qiwi/mixin/compare/v1.1.3...v1.2.0) (2020-03-29)
+
+
+### Features
+
+* export util types ([5fe7e53](https://github.com/qiwi/mixin/commit/5fe7e53c29d1ad5c9e309480e30effa866e86862))
+
 ## [1.1.3](https://github.com/qiwi/mixin/compare/v1.1.2...v1.1.3) (2020-03-20)
 
 
