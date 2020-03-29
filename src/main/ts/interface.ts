@@ -10,6 +10,9 @@ import {
   UnionToIntersectionOfInstances,
 } from './utility-types'
 
+export * from './pipe-types'
+export * from './utility-types'
+
 export type IMixedAsObject<T, U extends any[]> = T & UnionToIntersectionOfInstances<U[number]>
 
 export type IMixedAsClass<T extends IConstructable, U extends any[]> = T

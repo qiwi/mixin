@@ -11,6 +11,8 @@ import {
   Ranges,
 } from './pipe-types-magic'
 
+export * from './pipe-types-magic'
+
 // Adapted from https://github.com/Kotarski/ts-functionaltypes
 
 // Get the previous number (for indexing)    (2=>1, 1=>0, 0=>never)
@@ -42,7 +44,7 @@ export type UnariesToPiped<F extends any[]> = {
     : F[K]
 }
 
-type ReturnTypeOrType<T> = T extends (...args: any[]) => infer R ? R : T
+export type ReturnTypeOrType<T> = T extends (...args: any[]) => infer R ? R : T
 
 export type PipeResult<U> = ((U extends any
   ? (k: ReturnTypeOrType<U>) => void
