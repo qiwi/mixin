@@ -41,12 +41,12 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@qiwi/substrate": "^1.18.16",
+    "@qiwi/substrate": "^1.18.19",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
     "@qiwi/license": "^1.1.2",
-    "@qiwi/semantic-release-gh-pages-plugin": "^1.15.9",
+    "@qiwi/semantic-release-gh-pages-plugin": "^1.15.10",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.0.5",
@@ -58,15 +58,15 @@
     "eslint-plugin-typescript": "^0.14.0",
     "esm": "^3.2.25",
     "flowgen": "1.10.0",
-    "jest": "^25.2.3",
+    "jest": "^25.2.4",
     "lodash": "^4.17.15",
     "microbundle": "^0.12.0-next.6",
     "replace-in-file": "^5.0.2",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.0.4",
-    "terser": "^4.6.7",
+    "terser": "^4.6.10",
     "ts-functionaltypes": "^1.0.6",
-    "ts-jest": "^25.2.1",
+    "ts-jest": "^25.3.0",
     "tslint": "^6.1.0",
     "tslint-config-qiwi": "^1.3.2",
     "typedoc": "0.17.3",

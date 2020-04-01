@@ -1,5 +1,5 @@
 import {
-  IExtendsCondition,
+  Extends,
   PrependTuple,
   Unary,
   UnaryOrIntersectionTypeFactory,
@@ -35,7 +35,7 @@ export type UnariesToPiped<F extends any[]> = {
   K extends SNumbers[number] ?
     K extends '0'
       ? F[K]
-      : IExtendsCondition<
+      : Extends<
         F[K],
         Unary,
         (i: PipeResult<F[Ranges[PrevN<S2N<K>>]]>) => PipeResult<F[Ranges[PrevN<S2N<K>>]]> & ReturnType<F[S2N<K>]>,
