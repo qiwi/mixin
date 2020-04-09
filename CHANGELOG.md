@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/qiwi/mixin/compare/v1.2.0...v1.2.1) (2020-04-09)
+
+
+### Performance Improvements
+
+* **package:** up deps ([a829dde](https://github.com/qiwi/mixin/commit/a829ddea66cc989916d7313442e12eef0cb9dc9c))
+
 # [1.2.0](https://github.com/qiwi/mixin/compare/v1.1.3...v1.2.0) (2020-03-29)
 
 
