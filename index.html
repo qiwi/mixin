@@ -93,6 +93,143 @@ c.b() <span class="hljs-comment">// 'b'</span>
 
 d.a() <span class="hljs-comment">// 'a'</span>
 d.b() <span class="hljs-comment">// 'b'</span></code></pre>
+				<a href="#advanced-usage" id="advanced-usage" style="color: inherit; text-decoration: none;">
+					<h2>Advanced usage</h2>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {
+  applyMixinsAsProxy,
+  applyMixinsAsMerge,
+  applyMixinsAsSubclass,
+  applyMixinsAsProto,
+  applyMixinsAsPipe
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'@qiwi/mixin'</span>
+
+<span class="hljs-keyword">interface</span> A {
+  a(): <span class="hljs-built_in">string</span>
+}
+<span class="hljs-keyword">interface</span> B <span class="hljs-keyword">extends</span> A {
+  b(): <span class="hljs-built_in">string</span>
+}
+<span class="hljs-keyword">interface</span> C <span class="hljs-keyword">extends</span> B {
+  c(): <span class="hljs-built_in">string</span>
+}
+<span class="hljs-keyword">interface</span> D {
+  d(): <span class="hljs-built_in">number</span>
+}
+<span class="hljs-keyword">const</span> a: A = {
+  a() {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'a'</span>
+  },
+}
+<span class="hljs-keyword">const</span> _a: A = {
+  a() {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'_a'</span>
+  },
+}
+<span class="hljs-keyword">const</span> b = {
+  b() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a().toUpperCase()
+  },
+} <span class="hljs-keyword">as</span> B
+<span class="hljs-keyword">const</span> c = {
+  c() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a() + <span class="hljs-keyword">this</span>.b()
+  },
+} <span class="hljs-keyword">as</span> C
+
+<span class="hljs-keyword">class</span> ACtor <span class="hljs-keyword">implements</span> A {
+  a() {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'a'</span>
+  }
+  <span class="hljs-keyword">static</span> foo() {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'foo'</span>
+  }
+}
+<span class="hljs-keyword">class</span> BCtor <span class="hljs-keyword">extends</span> ACtor <span class="hljs-keyword">implements</span> B {
+  b() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a().toUpperCase()
+  }
+  <span class="hljs-keyword">static</span> bar() {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'bar'</span>
+  }
+}
+
+<span class="hljs-keyword">class</span> DCtor <span class="hljs-keyword">implements</span> D {
+  d() {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+  }
+}
+
+<span class="hljs-keyword">class</span> Blank {}</code></pre>
+				<a href="#applymixinsasproxy" id="applymixinsasproxy" style="color: inherit; text-decoration: none;">
+					<h3>applyMixinsAsProxy</h3>
+				</a>
+				<pre><code class="language-typescript">  <span class="hljs-keyword">type</span> ITarget = { foo: <span class="hljs-built_in">string</span> }
+  <span class="hljs-keyword">const</span> t: ITarget = {foo: <span class="hljs-string">'bar'</span>}
+  <span class="hljs-keyword">const</span> t2 = applyMixinsAsProxy(t, a, b, c, _a)
+
+  t2.c()  <span class="hljs-comment">// '_a_A'</span>
+  t2.a()  <span class="hljs-comment">// '_a'</span>
+  t2.foo  <span class="hljs-comment">// 'bar'</span>
+  <span class="hljs-comment">// @ts-ignore</span>
+  t2.d    <span class="hljs-comment">// undefined</span></code></pre>
+				<a href="#applymixinsasmerge" id="applymixinsasmerge" style="color: inherit; text-decoration: none;">
+					<h3>applyMixinsAsMerge</h3>
+				</a>
+				<pre><code class="language-typescript">  <span class="hljs-keyword">type</span> ITarget = { foo: <span class="hljs-built_in">string</span> }
+  <span class="hljs-keyword">const</span> t: ITarget = {foo: <span class="hljs-string">'bar'</span>}
+  <span class="hljs-keyword">const</span> t2 = applyMixinsAsMerge(t, a, b, c)
+
+  t === t2  <span class="hljs-comment">// true</span>
+  t2.c()    <span class="hljs-comment">// 'aA'</span>
+  t2.a()    <span class="hljs-comment">// 'a'</span>
+  t2.foo    <span class="hljs-comment">// 'bar'</span></code></pre>
+				<a href="#applymixinsassubclass" id="applymixinsassubclass" style="color: inherit; text-decoration: none;">
+					<h3>applyMixinsAsSubclass</h3>
+				</a>
+				<pre><code class="language-typescript">  <span class="hljs-keyword">const</span> M = applyMixinsAsSubclass(ACtor, Blank, BCtor, DCtor)
+  <span class="hljs-keyword">const</span> m = <span class="hljs-keyword">new</span> M()
+
+  M.foo()   <span class="hljs-comment">// 'foo'</span>
+  M.bar()   <span class="hljs-comment">// 'bar'</span>
+
+  m <span class="hljs-keyword">instanceof</span> M <span class="hljs-comment">// true</span>
+  m <span class="hljs-keyword">instanceof</span> ACtor <span class="hljs-comment">// true</span>
+  m.a()     <span class="hljs-comment">// 'a'</span>
+  m.b()     <span class="hljs-comment">// 'A'</span>
+  m.d()     <span class="hljs-comment">// 1</span></code></pre>
+				<a href="#applymixinsasproto" id="applymixinsasproto" style="color: inherit; text-decoration: none;">
+					<h3>applyMixinsAsProto</h3>
+				</a>
+				<pre><code class="language-typescript">  <span class="hljs-keyword">class</span> Target {
+    method() {
+      <span class="hljs-keyword">return</span> <span class="hljs-string">'value'</span>
+    }
+  }
+  <span class="hljs-keyword">const</span> Derived = applyMixinsAsProto(Target, ACtor, BCtor, DCtor, Blank)
+  <span class="hljs-keyword">const</span> m = <span class="hljs-keyword">new</span> Derived()
+
+  Derived === Target <span class="hljs-comment">// true</span>
+  Derived.foo() <span class="hljs-comment">// 'foo'</span>
+  Derived.bar() <span class="hljs-comment">// 'bar'</span>
+
+  m.a()   <span class="hljs-comment">// 'a'</span>
+  m.b()   <span class="hljs-comment">// 'A'</span>
+  m.d()   <span class="hljs-comment">// 1</span></code></pre>
+				<a href="#applymixinsasfactory" id="applymixinsasfactory" style="color: inherit; text-decoration: none;">
+					<h3>applyMixinsAsFactory</h3>
+				</a>
+				<pre><code class="language-typescript">  <span class="hljs-keyword">const</span> n = <span class="hljs-function">(<span class="hljs-params">n: <span class="hljs-built_in">number</span></span>) =&gt;</span> ({n})
+  <span class="hljs-keyword">const</span> m = <span class="hljs-function">(<span class="hljs-params">{n}: {n: <span class="hljs-built_in">number</span>}</span>) =&gt;</span> ({n: <span class="hljs-number">2</span> * n})
+  <span class="hljs-keyword">const</span> k = <span class="hljs-function">(<span class="hljs-params">{n}: {n: <span class="hljs-built_in">string</span>}</span>) =&gt;</span> n.toUpperCase()
+  <span class="hljs-keyword">const</span> e = &lt;T <span class="hljs-keyword">extends</span> {}&gt;(e: T): T &amp; {foo: <span class="hljs-built_in">string</span>} =&gt; ({...e, foo: <span class="hljs-string">'foo'</span>})
+  <span class="hljs-keyword">const</span> i = &lt;T <span class="hljs-keyword">extends</span> {foo: <span class="hljs-built_in">number</span>}&gt;(i: T): <span class="hljs-function"><span class="hljs-params">T</span> =&gt;</span> i
+
+  <span class="hljs-keyword">const</span> nm = applyMixinsAsPipe(n, m)
+  <span class="hljs-keyword">const</span> ie = applyMixinsAsPipe(i, e)
+
+  <span class="hljs-keyword">const</span> v1: <span class="hljs-built_in">number</span> = nm(<span class="hljs-number">2</span>).n          <span class="hljs-comment">// 4</span>
+  <span class="hljs-keyword">const</span> v2: <span class="hljs-built_in">string</span> = ie({foo: <span class="hljs-number">1</span>}).foo <span class="hljs-comment">// 'foo'</span></code></pre>
 				<a href="#questions" id="questions" style="color: inherit; text-decoration: none;">
 					<h2>Questions</h2>
 				</a>
