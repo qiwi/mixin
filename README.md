@@ -1,6 +1,12 @@
 # @qiwi/mixin
 RnD project to compare different mixin approaches in TypeScript.
 
+[![Build](https://img.shields.io/travis/com/qiwi/mixin)](https://travis-ci.org/qiwi/mixin)
+[![npm (tag)](https://img.shields.io/npm/v/@qiwi/mixin)](https://www.npmjs.com/package/@qiwi/mixin)
+[![Deps](https://img.shields.io/david/qiwi/mixin)](https://david-dm.org/qiwi/mixin)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0ff60f82e170ad04b600/maintainability)](https://codeclimate.com/github/qiwi/mixin/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0ff60f82e170ad04b600/test_coverage)](https://codeclimate.com/github/qiwi/mixin/test_coverage)
+
 ## Usage
 ```typescript
 import {applyMixins} from '@qiwi/mixin'
