@@ -54,7 +54,7 @@ export const toClassMixin = <T>(target: T) =>
 
 export const toObjectMixin = <T extends any>(target: T) =>
   (isClass(target)
-    ? target.prototype
+    ? (target as IConstructable<T>).prototype
     : target
   ) as InstanceTypeOrType<T>
 
