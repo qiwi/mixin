@@ -1,4 +1,5 @@
 import {
+  IClass,
   IConstructable,
   UnionToIntersection,
 } from '@qiwi/substrate'
@@ -54,7 +55,7 @@ export const toClassMixin = <T>(target: T) =>
 
 export const toObjectMixin = <T extends any>(target: T) =>
   (isClass(target)
-    ? (target as IConstructable<T>).prototype
+    ? (target as IClass).prototype
     : target
   ) as InstanceTypeOrType<T>
 
