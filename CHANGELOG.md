@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/qiwi/mixin/compare/v1.2.2...v1.2.3) (2020-05-15)
+
+
+### Performance Improvements
+
+* up deps, migrate to libdefkit ([0b6d2e1](https://github.com/qiwi/mixin/commit/0b6d2e1e7e3e5113c99fcea32e90fd4291df52ad))
+
 ## [1.2.2](https://github.com/qiwi/mixin/compare/v1.2.1...v1.2.2) (2020-04-27)
 
 
