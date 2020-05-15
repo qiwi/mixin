@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@qiwi/substrate": "^1.18.28",
-    "tslib": "^1.12.0"
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@qiwi/libdefkit": "^1.0.1",
@@ -47,9 +47,9 @@
     "@qiwi/semantic-release-gh-pages-plugin": "^1.16.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
-    "@semantic-release/github": "^7.0.5",
+    "@semantic-release/github": "^7.0.6",
     "@semantic-release/npm": "^7.0.5",
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^25.2.2",
     "@types/jest-json-schema": "^2.1.2",
     "coveralls": "^3.1.0",
     "eslint-plugin-typescript": "^0.14.0",
