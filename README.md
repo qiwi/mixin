@@ -1,5 +1,5 @@
 # @qiwi/mixin
-RnD project to compare different mixin approaches in TypeScript.
+RnD project to compare various mixin approaches in TypeScript.
 
 [![Build](https://img.shields.io/travis/com/qiwi/mixin)](https://travis-ci.org/qiwi/mixin)
 [![npm (tag)](https://img.shields.io/npm/v/@qiwi/mixin)](https://www.npmjs.com/package/@qiwi/mixin)
