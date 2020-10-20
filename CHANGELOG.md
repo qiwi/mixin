@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/qiwi/mixin/compare/v1.2.3...v1.2.4) (2020-10-20)
+
+
+### Bug Fixes
+
+* **package:** up deps, fix some vulns ([e34a378](https://github.com/qiwi/mixin/commit/e34a378448121096e789a48b3e85b253b40e0ed4))
+
 ## [1.2.3](https://github.com/qiwi/mixin/compare/v1.2.2...v1.2.3) (2020-05-15)
 
 
