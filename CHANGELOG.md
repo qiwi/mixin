@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/qiwi/mixin/compare/v1.2.4...v1.2.5) (2020-11-08)
+
+
+### Performance Improvements
+
+* **package:** deps revision ([7bac069](https://github.com/qiwi/mixin/commit/7bac069e1fe667f714bea1696949995b0aa1bd75))
+
 ## [1.2.4](https://github.com/qiwi/mixin/compare/v1.2.3...v1.2.4) (2020-10-20)
 
 
