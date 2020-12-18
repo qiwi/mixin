@@ -1,15 +1,14 @@
 import {
+  Numbers,
+  Ranges,
+  SNumbers,
+} from './pipe-types-magic'
+import {
   Extends,
   PrependTuple,
   Unary,
   UnaryOrIntersectionTypeFactory,
 } from './utility-types'
-
-import {
-  SNumbers,
-  Numbers,
-  Ranges,
-} from './pipe-types-magic'
 
 export * from './pipe-types-magic'
 
@@ -25,6 +24,13 @@ export type S2N<S extends SNumbers[number]> = {
 
 // Get the (single) argument of a given unary function
 export type ParameterUnary<F extends Unary> = Parameters<F>['0']
+
+export type ReturnTypeOrType<T> = T extends (...args: any[]) => infer R ? R : T
+
+export type PipeResult<U> = ((U extends any
+    ? (k: ReturnTypeOrType<U>) => void
+    : never
+    ) extends ((k: infer I) => void) ? I : never)
 
 // Iterate through the unaries
 // For each previous/current pair, the previous return values should be applicable to the current parameter value
@@ -43,13 +49,6 @@ export type UnariesToPiped<F extends any[]> = {
       >
     : F[K]
 }
-
-export type ReturnTypeOrType<T> = T extends (...args: any[]) => infer R ? R : T
-
-export type PipeResult<U> = ((U extends any
-  ? (k: ReturnTypeOrType<U>) => void
-  : never
-  ) extends ((k: infer I) => void) ? I : never)
 
 export type IPipeApplier = <F extends any[]>(...funcs: UnariesToPiped<F>) =>
   (i: ParameterUnary<UnaryOrIntersectionTypeFactory<F[0]>>) => PipeResult<F[number]>

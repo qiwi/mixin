@@ -1,4 +1,9 @@
-import {IConstructable, Extends, UnaryFn, PrependTuple} from '@qiwi/substrate'
+import {
+  Extends,
+  IConstructable,
+  PrependTuple,
+  UnaryFn,
+} from '@qiwi/substrate'
 
 export {
   UnaryFn as Unary,
@@ -8,10 +13,10 @@ export {
 
 export type InstanceTypeOrType<T> = Extends<T, IConstructable, InstanceType<IConstructable & T>, T>
 
-export type ConstuctableOrEmpty<T> = Extends<T, IConstructable, T, {}>
+export type ConstructableOrEmpty<T> = Extends<T, IConstructable, T, Record<any, any>>
 
 export type UnionToIntersectionOfConstructables<U> = (U extends any
-  ? (k: ConstuctableOrEmpty<U>) => void
+  ? (k: ConstructableOrEmpty<U>) => void
   : never) extends (k: infer I) => void
     ? I
     : never

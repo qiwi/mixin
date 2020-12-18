@@ -1,9 +1,9 @@
 import {
-  applyMixinsAsProxy,
-  applyMixinsAsMerge,
-  applyMixinsAsSubclass,
-  applyMixinsAsProto,
   applyMixins,
+  applyMixinsAsMerge,
+  applyMixinsAsProto,
+  applyMixinsAsProxy,
+  applyMixinsAsSubclass,
 } from '../../main/ts'
 
 describe('index', () => {

@@ -9,18 +9,16 @@ import {
 import {
   IApplier,
   IClassApplier,
-  IObjectApplier,
-  IMixedAsObject,
-  IMixedAsClass,
   IMixed,
+  IMixedAsClass,
+  IMixedAsObject,
+  IObjectApplier,
 } from './interface'
-
 import {IPipeApplier} from './pipe-types'
-
 import {
-  mergeProto,
-  mergeDescriptors,
   isClass,
+  mergeDescriptors,
+  mergeProto,
   toClassMixin,
   toObjectMixin,
   toPipeMixin,

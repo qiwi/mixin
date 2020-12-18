@@ -1,10 +1,10 @@
 import {
-  applyMixinsAsProxy,
-  applyMixinsAsMerge,
-  applyMixinsAsSubclass,
-  applyMixinsAsProto,
-  applyMixinsAsPipe,
   applyMixins,
+  applyMixinsAsMerge,
+  applyMixinsAsPipe,
+  applyMixinsAsProto,
+  applyMixinsAsProxy,
+  applyMixinsAsSubclass,
 } from '../../main/ts'
 
 describe('applyMixins', () => {
@@ -46,6 +46,7 @@ describe('applyMixins', () => {
     a() {
       return 'a'
     }
+
     static foo() {
       return 'foo'
     }
@@ -57,6 +58,7 @@ describe('applyMixins', () => {
     b() {
       return this.a().toUpperCase()
     }
+
     static bar() {
       return 'bar'
     }
@@ -149,8 +151,8 @@ describe('applyMixins', () => {
     it('composes several factories', () => {
       const n = (n: number) => ({n})
       const m = ({n}: {n: number}) => ({n: 2 * n})
-      const k = ({n}: {n: string}) => n.toUpperCase()
-      const e = <T extends {}>(e: T): T & {foo: string} => ({...e, foo: 'foo'})
+      const k = ({n}: {n: string}) => (n + '').toUpperCase()
+      const e = <T extends Record<any, any>>(e: T): T & {foo: string} => ({...e, foo: 'foo'})
       const i = <T extends {foo: number}>(i: T): T => i
 
       const nm = applyMixinsAsPipe(n, m)
@@ -162,9 +164,13 @@ describe('applyMixins', () => {
 
       const v1: number = nm(2).n
       const v2: string = ie({foo: 1}).foo
+      const v3: string = nk(1)
+      const v4: Record<any, any> = ei({bar: 'bar'})
 
       expect(v1).toBe(4)
       expect(v2).toBe('foo')
+      expect(v3).toEqual('1')
+      expect(v4).toEqual({foo: 'foo', bar: 'bar'})
     })
 
     it('handles object injections', () => {
@@ -258,6 +264,7 @@ describe('applyMixins', () => {
         constructor(param: number) {
           console.log(param)
         }
+
         a() {
           return 'a'
         }
