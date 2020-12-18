@@ -1,7 +1,7 @@
 import {
+  isClass,
   toClassMixin,
   toObjectMixin,
-  isClass,
 } from '../../main/ts/util'
 
 describe('util', () => {
