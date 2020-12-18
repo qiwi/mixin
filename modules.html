@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="../index.html">@qiwi/mixin</a></strong>
+					<strong><a href="index.html">@qiwi/mixin</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -45,273 +45,174 @@
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-			<a href="_qiwi_mixin.html#applymixins" class="tsd-kind-icon">apply<wbr>Mixins</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-			<a href="_qiwi_mixin.html#applymixinsasmerge" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsMerge</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-			<a href="_qiwi_mixin.html#applymixinsaspipe" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsPipe</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-			<a href="_qiwi_mixin.html#applymixinsasproto" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsProto</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-			<a href="_qiwi_mixin.html#applymixinsasproxy" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsProxy</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-			<a href="_qiwi_mixin.html#applymixinsassubclass" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsSubclass</a>
-		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<section class="tsd-panel tsd-comment">
-			<div class="tsd-comment tsd-typography">
-			</div>
-		</section>
+		<div class="tsd-panel tsd-typography">
+			<a href="#qiwimixin" id="qiwimixin" style="color: inherit; text-decoration: none;">
+				<h1>@qiwi/mixin</h1>
+			</a>
+			<p>RnD project to compare various mixin approaches in TypeScript.</p>
+			<p><a href="https://travis-ci.org/qiwi/mixin"><img src="https://img.shields.io/travis/com/qiwi/mixin" alt="Build"></a>
+				<a href="https://www.npmjs.com/package/@qiwi/mixin"><img src="https://img.shields.io/npm/v/@qiwi/mixin" alt="npm (tag)"></a>
+				<a href="https://david-dm.org/qiwi/mixin"><img src="https://img.shields.io/david/qiwi/mixin" alt="Deps"></a>
+				<a href="https://codeclimate.com/github/qiwi/mixin/maintainability"><img src="https://api.codeclimate.com/v1/badges/0ff60f82e170ad04b600/maintainability" alt="Maintainability"></a>
+			<a href="https://codeclimate.com/github/qiwi/mixin/test_coverage"><img src="https://api.codeclimate.com/v1/badges/0ff60f82e170ad04b600/test_coverage" alt="Test Coverage"></a></p>
+			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+				<h2>Usage</h2>
+			</a>
+			<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">applyMixins</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@qiwi/mixin&#039;</span>
+
+<span style="color: #0000FF">interface</span><span style="color: #000000"> </span><span style="color: #267F99">IA</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #795E26">a</span><span style="color: #000000">: () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">string</span>
+<span style="color: #000000">}</span>
+<span style="color: #0000FF">interface</span><span style="color: #000000"> </span><span style="color: #267F99">IB</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #795E26">b</span><span style="color: #000000">: () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">string</span>
+<span style="color: #000000">}</span>
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">A</span><span style="color: #000000"> </span><span style="color: #0000FF">implements</span><span style="color: #000000"> </span><span style="color: #267F99">IA</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #795E26">a</span><span style="color: #000000">() { </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;a&#039;</span><span style="color: #000000"> }</span>
+<span style="color: #000000">}</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">b</span><span style="color: #000000">: </span><span style="color: #267F99">IB</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #795E26">b</span><span style="color: #000000">() { </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;b&#039;</span><span style="color: #000000"> }</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">c</span><span style="color: #000000"> = </span><span style="color: #795E26">applyMixins</span><span style="color: #000000">({}, </span><span style="color: #0070C1">A</span><span style="color: #000000">, </span><span style="color: #001080">b</span><span style="color: #000000">)</span>
+<span style="color: #001080">c</span><span style="color: #000000">.</span><span style="color: #795E26">a</span><span style="color: #000000">() </span><span style="color: #008000">// &#039;a&#039;</span>
+<span style="color: #001080">c</span><span style="color: #000000">.</span><span style="color: #795E26">b</span><span style="color: #000000">() </span><span style="color: #008000">// &#039;b&#039;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">D</span><span style="color: #000000"> = </span><span style="color: #795E26">applyMixins</span><span style="color: #000000">(</span><span style="color: #0070C1">A</span><span style="color: #000000">, </span><span style="color: #001080">b</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">d</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">D</span><span style="color: #000000">()</span>
+
+<span style="color: #001080">d</span><span style="color: #000000">.</span><span style="color: #795E26">a</span><span style="color: #000000">() </span><span style="color: #008000">// &#039;a&#039;</span>
+<span style="color: #001080">d</span><span style="color: #000000">.</span><span style="color: #795E26">b</span><span style="color: #000000">() </span><span style="color: #008000">// &#039;b&#039;</span>
+</code></pre>
+			<p>Details are illustrated by the <a href="./ADVANCED.md">advanced usage examples</a>.</p>
+			<a href="#questions" id="questions" style="color: inherit; text-decoration: none;">
+				<h2>Questions</h2>
+			</a>
+			<ol start="0">
+				<li>Definition.<blockquote>
+						<p>A mixin is a special kind of multiple inheritance.</p>
+					</blockquote>
+				</li>
+				<li>Is it possible to mix classes with automated type inference?<blockquote>
+						<p>There&#39;re several solutions:</p>
+						<ul>
+							<li>A subclass factory </li>
+							<li>Proto merge + constructor invocation + type cast workarounds</li>
+						</ul>
+					</blockquote>
+				</li>
+				<li>How to combine OOP and functional mixins?<blockquote>
+						<p>Apply different merge strategies for each target type and rest args converters</p>
+					</blockquote>
+				</li>
+				<li>How to check if composition has a given mixin or not?<blockquote>
+						<p>Ref Cache / WeakMap</p>
+					</blockquote>
+				</li>
+				<li>What&#39;s about mixin factories?  <blockquote>
+						<p>It&#39;s called <code>applyMixins</code></p>
+					</blockquote>
+				</li>
+			</ol>
+			<a href="#definition" id="definition" style="color: inherit; text-decoration: none;">
+				<h2>Definition</h2>
+			</a>
+			<p>A mixin is a special kind of multiple inheritance. It&#39;s a form of object composition, where component features get mixed into a composite object so that properties of each mixin become properties of the composite object.</p>
+			<p>In OOP, a mixin is a class that contains methods for use by other classes, and can also be viewed as an interface with implemented methods.  </p>
+			<p>Functional mixins are composable factories which connect together in a pipeline; each function adding some properties or behaviors.</p>
+			<p>Perhaps these are not perfect definitions, but we&#39;ll rely on them.</p>
+			<a href="#how-to-and-what-to-mix" id="how-to-and-what-to-mix" style="color: inherit; text-decoration: none;">
+				<h2>How to and what to mix</h2>
+			</a>
+			<ol>
+				<li><p>Subclass factory</p>
+					<pre><code class="language-typescript"><span style="color: #0000FF">type</span><span style="color: #000000"> </span><span style="color: #267F99">Constructor</span><span style="color: #000000">&lt;</span><span style="color: #267F99">T</span><span style="color: #000000"> = {}&gt; = </span><span style="color: #AF00DB">new</span><span style="color: #000000"> (...</span><span style="color: #001080">args</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000">[]) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">T</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">MixFoo</span><span style="color: #000000">&lt;</span><span style="color: #267F99">TBase</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">Constructor</span><span style="color: #000000">&gt;(</span><span style="color: #001080">Base</span><span style="color: #000000">: </span><span style="color: #267F99">TBase</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">Base</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #795E26">foo</span><span style="color: #000000">() { </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;bar&#039;</span><span style="color: #000000"> }</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				</li>
+				<li><p>Prototype injection</p>
+					<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Derived</span><span style="color: #000000"> {}</span>
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Mixed</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #795E26">foo</span><span style="color: #000000">() { </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;bar&#039;</span><span style="color: #000000"> }</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #267F99">Object</span><span style="color: #000000">.</span><span style="color: #795E26">getOwnPropertyNames</span><span style="color: #000000">(</span><span style="color: #267F99">Mixed</span><span style="color: #000000">.</span><span style="color: #001080">prototype</span><span style="color: #000000">).</span><span style="color: #795E26">forEach</span><span style="color: #000000">(</span><span style="color: #001080">name</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #267F99">Object</span><span style="color: #000000">.</span><span style="color: #795E26">defineProperty</span><span style="color: #000000">(</span><span style="color: #267F99">Derived</span><span style="color: #000000">.</span><span style="color: #001080">prototype</span><span style="color: #000000">, </span><span style="color: #001080">name</span><span style="color: #000000">, </span><span style="color: #267F99">Object</span><span style="color: #000000">.</span><span style="color: #795E26">getOwnPropertyDescriptor</span><span style="color: #000000">(</span><span style="color: #267F99">Mixed</span><span style="color: #000000">.</span><span style="color: #001080">prototype</span><span style="color: #000000">, </span><span style="color: #001080">name</span><span style="color: #000000">));</span>
+<span style="color: #000000">})</span>
+</code></pre>
+				</li>
+				<li><p>Object assignment</p>
+					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">foo</span><span style="color: #000000"> = {</span><span style="color: #001080">foo:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;foo&#039;</span><span style="color: #000000">}</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">fooMixin</span><span style="color: #000000"> = (</span><span style="color: #001080">target</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">Object</span><span style="color: #000000">.</span><span style="color: #795E26">assign</span><span style="color: #000000">(</span><span style="color: #001080">target</span><span style="color: #000000">, </span><span style="color: #001080">foo</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">bar</span><span style="color: #000000"> = </span><span style="color: #795E26">fooMixin</span><span style="color: #000000">({</span><span style="color: #001080">bar:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;bar&#039;</span><span style="color: #000000">})</span>
+</code></pre>
+				</li>
+				<li><p>Proxy wrapping</p>
+					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">mixAsProxy</span><span style="color: #000000"> = &lt;</span><span style="color: #267F99">P</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">IAnyMap</span><span style="color: #000000">, </span><span style="color: #267F99">M</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">IAnyMap</span><span style="color: #000000">&gt;(</span><span style="color: #001080">target</span><span style="color: #000000">: </span><span style="color: #267F99">P</span><span style="color: #000000">, </span><span style="color: #001080">mixin</span><span style="color: #000000">: </span><span style="color: #267F99">M</span><span style="color: #000000">): </span><span style="color: #267F99">P</span><span style="color: #000000"> &amp; </span><span style="color: #267F99">M</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Proxy</span><span style="color: #000000">(</span><span style="color: #001080">target</span><span style="color: #000000">, {</span>
+<span style="color: #000000">  </span><span style="color: #795E26">get</span><span style="color: #001080">:</span><span style="color: #000000"> (</span><span style="color: #001080">obj</span><span style="color: #000000">, </span><span style="color: #001080">prop</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">prop</span><span style="color: #000000"> </span><span style="color: #0000FF">in</span><span style="color: #000000"> </span><span style="color: #001080">mixin</span>
+<span style="color: #000000">      </span><span style="color: #008000">// @ts-ignore</span>
+<span style="color: #000000">      ? </span><span style="color: #001080">mixin</span><span style="color: #000000">[</span><span style="color: #001080">prop</span><span style="color: #000000">]</span>
+<span style="color: #000000">      </span><span style="color: #008000">// @ts-ignore</span>
+<span style="color: #000000">      : </span><span style="color: #001080">obj</span><span style="color: #000000">[</span><span style="color: #001080">prop</span><span style="color: #000000">]</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">}) </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">P</span><span style="color: #000000"> &amp; </span><span style="color: #267F99">M</span>
+</code></pre>
+				</li>
+				<li><p>Functional mixin piping</p>
+					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">foo</span><span style="color: #000000"> = &lt;</span><span style="color: #267F99">T</span><span style="color: #000000">&gt;(</span><span style="color: #001080">t</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">): </span><span style="color: #267F99">T</span><span style="color: #000000"> &amp; {</span><span style="color: #001080">foo</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">} </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> ({...</span><span style="color: #001080">t</span><span style="color: #000000">, </span><span style="color: #001080">foo:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;foo&#039;</span><span style="color: #000000">})</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">bar</span><span style="color: #000000"> = &lt;</span><span style="color: #267F99">T</span><span style="color: #000000">&gt;(</span><span style="color: #001080">t</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">): </span><span style="color: #267F99">T</span><span style="color: #000000"> &amp; {</span><span style="color: #001080">bar</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">} </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> ({...</span><span style="color: #001080">t</span><span style="color: #000000">, </span><span style="color: #001080">bar:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">})</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">foobar</span><span style="color: #000000"> = </span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #001080">foo</span><span style="color: #000000">, </span><span style="color: #001080">bar</span><span style="color: #000000">) </span><span style="color: #008000">// smth, that composes fn mixins like `(target) =&gt; bar(foo(target))`</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">target</span><span style="color: #000000"> = {}</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">res</span><span style="color: #000000"> = </span><span style="color: #795E26">foobar</span><span style="color: #000000">(</span><span style="color: #001080">target</span><span style="color: #000000">)</span>
+</code></pre>
+				</li>
+			</ol>
+			<a href="#refs" id="refs" style="color: inherit; text-decoration: none;">
+				<h2>Refs</h2>
+			</a>
+			<ul>
+				<li><a href="https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c">https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c</a></li>
+				<li><a href="https://medium.com/ackee/typescript-function-composition-and-recurrent-types-a9efbc8e7736">https://medium.com/ackee/typescript-function-composition-and-recurrent-types-a9efbc8e7736</a></li>
+				<li><a href="https://dev.to/miracleblue/how-2-typescript-get-the-last-item-type-from-a-tuple-of-types-3fh3">https://dev.to/miracleblue/how-2-typescript-get-the-last-item-type-from-a-tuple-of-types-3fh3</a></li>
+				<li><a href="https://dev.to/ascorbic/creating-a-typed-compose-function-in-typescript-3-351i">https://dev.to/ascorbic/creating-a-typed-compose-function-in-typescript-3-351i</a></li>
+				<li><a href="https://mariusschulz.com/blog/mixin-classes-in-typescript">https://mariusschulz.com/blog/mixin-classes-in-typescript</a></li>
+				<li><a href="https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/">https://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/</a></li>
+				<li><a href="https://github.com/justinfagnani/mixwith.js">https://github.com/justinfagnani/mixwith.js</a></li>
+				<li><a href="https://github.com/amercier/es6-mixin">https://github.com/amercier/es6-mixin</a></li>
+				<li><a href="https://github.com/Kotarski/ts-functionaltypes">https://github.com/Kotarski/ts-functionaltypes</a></li>
+				<li><a href="https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/">https://www.bryntum.com/blog/the-mixin-pattern-in-typescript-all-you-need-to-know/</a></li>
+				<li><a href="https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful">https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful</a></li>
+				<li><a href="https://stackoverflow.com/questions/48372465/type-safe-mixin-decorator-in-typescript">https://stackoverflow.com/questions/48372465/type-safe-mixin-decorator-in-typescript</a></li>
+				<li><a href="https://stackoverflow.com/questions/13407036/how-does-interfaces-with-construct-signatures-work">https://stackoverflow.com/questions/13407036/how-does-interfaces-with-construct-signatures-work</a></li>
+			</ul>
+		</div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Functions</h3>
+						<h3>Modules</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_qiwi_mixin.html#applymixins" class="tsd-kind-icon">apply<wbr>Mixins</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_qiwi_mixin.html#applymixinsasmerge" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsMerge</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_qiwi_mixin.html#applymixinsaspipe" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsPipe</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_qiwi_mixin.html#applymixinsasproto" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsProto</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_qiwi_mixin.html#applymixinsasproxy" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsProxy</a></li>
-							<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_qiwi_mixin.html#applymixinsassubclass" class="tsd-kind-icon">apply<wbr>Mixins<wbr>AsSubclass</a></li>
+							<li class="tsd-kind-module"><a href="modules/_qiwi_mixin.html" class="tsd-kind-icon">@qiwi/mixin</a></li>
+							<li class="tsd-kind-module"><a href="modules/_qiwi_mixin.html" class="tsd-kind-icon">@qiwi/mixin</a></li>
+							<li class="tsd-kind-module"><a href="modules/_qiwi_mixin.html" class="tsd-kind-icon">@qiwi/mixin</a></li>
+							<li class="tsd-kind-module"><a href="modules/pipe_types.html" class="tsd-kind-icon">pipe-<wbr>types</a></li>
+							<li class="tsd-kind-module"><a href="modules/pipe_types_magic.html" class="tsd-kind-icon">pipe-<wbr>types-<wbr>magic</a></li>
+							<li class="tsd-kind-module"><a href="modules/util.html" class="tsd-kind-icon">util</a></li>
+							<li class="tsd-kind-module"><a href="modules/utility_types.html" class="tsd-kind-icon">utility-<wbr>types</a></li>
 						</ul>
 					</section>
 				</div>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-				<a name="applymixins" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> apply<wbr>Mixins</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">apply<wbr>Mixins&lt;T, U&gt;<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, <span class="tsd-signature-symbol">...</span>mixins<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_qiwi_mixin.html#imixed" class="tsd-signature-type">IMixed</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/qiwi/mixin/blob/f32c5e8/src/main/ts/interface.ts#L37">src/main/ts/interface.ts:37</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>T</h4>
-							</li>
-							<li>
-								<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>target: <span class="tsd-signature-type">T</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>mixins: <span class="tsd-signature-type">U</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="_qiwi_mixin.html#imixed" class="tsd-signature-type">IMixed</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-				<a name="applymixinsasmerge" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> apply<wbr>Mixins<wbr>AsMerge</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">apply<wbr>Mixins<wbr>AsMerge&lt;T, U&gt;<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, <span class="tsd-signature-symbol">...</span>mixins<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_qiwi_mixin.html#imixedasobject" class="tsd-signature-type">IMixedAsObject</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/qiwi/mixin/blob/f32c5e8/src/main/ts/interface.ts#L28">src/main/ts/interface.ts:28</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>T</h4>
-							</li>
-							<li>
-								<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>target: <span class="tsd-signature-type">T</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>mixins: <span class="tsd-signature-type">U</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="_qiwi_mixin.html#imixedasobject" class="tsd-signature-type">IMixedAsObject</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-				<a name="applymixinsaspipe" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> apply<wbr>Mixins<wbr>AsPipe</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">apply<wbr>Mixins<wbr>AsPipe&lt;F&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>funcs<span class="tsd-signature-symbol">: </span><a href="pipe_types.html#unariestopiped" class="tsd-signature-type">UnariesToPiped</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>i<span class="tsd-signature-symbol">: </span><a href="pipe_types.html#parameterunary" class="tsd-signature-type">ParameterUnary</a><span class="tsd-signature-symbol">&lt;</span><a href="utility_types.html#unaryorintersectiontypefactory" class="tsd-signature-type">UnaryOrIntersectionTypeFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="pipe_types.html#piperesult" class="tsd-signature-type">PipeResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/qiwi/mixin/blob/f32c5e8/src/main/ts/pipe-types.ts#L53">src/main/ts/pipe-types.ts:53</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>F<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>funcs: <a href="pipe_types.html#unariestopiped" class="tsd-signature-type">UnariesToPiped</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span>i<span class="tsd-signature-symbol">: </span><a href="pipe_types.html#parameterunary" class="tsd-signature-type">ParameterUnary</a><span class="tsd-signature-symbol">&lt;</span><a href="utility_types.html#unaryorintersectiontypefactory" class="tsd-signature-type">UnaryOrIntersectionTypeFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="pipe_types.html#piperesult" class="tsd-signature-type">PipeResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-function">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>i<span class="tsd-signature-symbol">: </span><a href="pipe_types.html#parameterunary" class="tsd-signature-type">ParameterUnary</a><span class="tsd-signature-symbol">&lt;</span><a href="utility_types.html#unaryorintersectiontypefactory" class="tsd-signature-type">UnaryOrIntersectionTypeFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="pipe_types.html#piperesult" class="tsd-signature-type">PipeResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>i: <a href="pipe_types.html#parameterunary" class="tsd-signature-type">ParameterUnary</a><span class="tsd-signature-symbol">&lt;</span><a href="utility_types.html#unaryorintersectiontypefactory" class="tsd-signature-type">UnaryOrIntersectionTypeFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="pipe_types.html#piperesult" class="tsd-signature-type">PipeResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-				<a name="applymixinsasproto" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> apply<wbr>Mixins<wbr>AsProto</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">apply<wbr>Mixins<wbr>AsProto&lt;T, U&gt;<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, <span class="tsd-signature-symbol">...</span>mixins<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_qiwi_mixin.html#imixedasclass" class="tsd-signature-type">IMixedAsClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/qiwi/mixin/blob/f32c5e8/src/main/ts/interface.ts#L30">src/main/ts/interface.ts:30</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IConstructor</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							</li>
-							<li>
-								<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IConstructor</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>target: <span class="tsd-signature-type">T</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>mixins: <span class="tsd-signature-type">U</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="_qiwi_mixin.html#imixedasclass" class="tsd-signature-type">IMixedAsClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-				<a name="applymixinsasproxy" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> apply<wbr>Mixins<wbr>AsProxy</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">apply<wbr>Mixins<wbr>AsProxy&lt;T, U&gt;<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, <span class="tsd-signature-symbol">...</span>mixins<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_qiwi_mixin.html#imixedasobject" class="tsd-signature-type">IMixedAsObject</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/qiwi/mixin/blob/f32c5e8/src/main/ts/interface.ts#L28">src/main/ts/interface.ts:28</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>T</h4>
-							</li>
-							<li>
-								<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>target: <span class="tsd-signature-type">T</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>mixins: <span class="tsd-signature-type">U</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="_qiwi_mixin.html#imixedasobject" class="tsd-signature-type">IMixedAsObject</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-				<a name="applymixinsassubclass" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> apply<wbr>Mixins<wbr>AsSubclass</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">apply<wbr>Mixins<wbr>AsSubclass&lt;T, U&gt;<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, <span class="tsd-signature-symbol">...</span>mixins<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_qiwi_mixin.html#imixedasclass" class="tsd-signature-type">IMixedAsClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/qiwi/mixin/blob/f32c5e8/src/main/ts/interface.ts#L30">src/main/ts/interface.ts:30</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IConstructor</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							</li>
-							<li>
-								<h4>U<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IConstructor</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>target: <span class="tsd-signature-type">T</span></h5>
-							</li>
-							<li>
-								<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>mixins: <span class="tsd-signature-type">U</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="_qiwi_mixin.html#imixedasclass" class="tsd-signature-type">IMixedAsClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
 			</section>
 		</section>
 		<footer>
