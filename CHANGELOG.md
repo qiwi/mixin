@@ -1,3 +1,10 @@
+## [1.2.7](https://github.com/qiwi/mixin/compare/v1.2.6...v1.2.7) (2021-02-25)
+
+
+### Bug Fixes
+
+* **package:** up deps, fix vuls ([3a86e8f](https://github.com/qiwi/mixin/commit/3a86e8f2c5886fca0c57909601805a76ab2f7acf))
+
 ## [1.2.6](https://github.com/qiwi/mixin/compare/v1.2.5...v1.2.6) (2020-12-18)
 
 
