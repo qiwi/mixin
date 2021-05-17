@@ -1,6 +1,7 @@
 {
   "name": "@qiwi/mixin",
   "out": "./docs",
+  "entryPoints": ["src/main/ts"],
   "exclude": ["src/test", "**/node_modules/**"],
   "externalPattern": ["**/node_modules/**"],
   "excludePrivate": false,
