@@ -1,6 +1,6 @@
 language: node_js
 cache: yarn
-node_js: 14
+node_js: 16
 install: skip
 os: linux
 dist: focal
@@ -53,6 +53,8 @@ jobs:
     - <<: *test
       node_js: 12
     - <<: *test
+      node_js: 14
+    - <<: *test
       if: branch = master AND type != pull_request AND env(CI_TEST) != false
       before_script:
         - if [ "$CC_TEST_REPORTER_ID" != "" ]; then
@@ -83,4 +85,4 @@ jobs:
       workspaces:
         use: linux-shared
       install: skip
-      script: npx -p @qiwi/semrel-toolkit semrel -e @qiwi/semrel-config
+      script: npm_config_yes=true npx -p @qiwi/semrel-toolkit semrel -e @qiwi/semrel-config
