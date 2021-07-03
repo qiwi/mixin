@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/mixin",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "RnD project to compare various mixin approaches in TypeScript",
   "private": false,
   "main": "target/es5/index.js",

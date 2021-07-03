@@ -1,3 +1,10 @@
+## [1.2.9](https://github.com/qiwi/mixin/compare/v1.2.8...v1.2.9) (2021-07-03)
+
+
+### Bug Fixes
+
+* **pkg:** update dev deps, fix some vuls ([e6ad65f](https://github.com/qiwi/mixin/commit/e6ad65f03498036896b2120312f468f867571fd3))
+
 ## [1.2.8](https://github.com/qiwi/mixin/compare/v1.2.7...v1.2.8) (2021-05-17)
 
 
