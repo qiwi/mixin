@@ -24,9 +24,9 @@
     "lint:fix": "yarn lint --fix",
     "test": "npm-run-all -p -l lint test:unit test:depcheck test:depaudit",
     "test:unit": "jest --config=jest.config.json --runInBand",
-    "test:depcheck": "npx depcheck --ignores tslib,@swissquote/crafty-preset-jest,@types/jest",
+    "test:depcheck": "npm_config_yes=true npx depcheck --ignores tslib,@swissquote/crafty-preset-jest,@types/jest",
     "test:depaudit": "yarn audit --level moderate --groups dependencies",
-    "test:depauditfix": "npx yarn-audit-fix --audit-level=moderate --only=prod",
+    "test:depauditfix": "npm_config_yes=true npx yarn-audit-fix --audit-level=moderate --only=prod",
     "test:report": "yarn test && yarn push:report",
     "build": "yarn clean && npm-run-all -p -l build:ts build:es5 build:es6 build:libdef build:bundle docs && yarn uglify",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
@@ -41,24 +41,24 @@
     "postupdate": "yarn && yarn test:depauditfix && yarn build && yarn test"
   },
   "dependencies": {
-    "@qiwi/substrate": "^1.20.8",
-    "tslib": "^2.2.0"
+    "@qiwi/substrate": "^1.20.9",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@qiwi/libdefkit": "^2.1.8",
+    "@qiwi/libdefkit": "^3.0.0",
     "@qiwi/npm-run-all": "^4.1.7",
     "@types/jest": "^26.0.23",
-    "eslint": "^7.26.0",
+    "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-qiwi": "^1.12.1",
-    "coveralls": "^3.1.0",
-    "jest": "^26.6.3",
-    "microbundle": "^0.13.0",
+    "eslint-config-qiwi": "^1.13.1",
+    "coveralls": "^3.1.1",
+    "jest": "^27.0.6",
+    "microbundle": "^0.13.3",
     "rimraf": "^3.0.2",
-    "terser": "^5.7.0",
-    "ts-jest": "^26.5.6",
-    "typedoc": "^0.20.36",
-    "typescript": "^4.2.4"
+    "terser": "^5.7.1",
+    "ts-jest": "^27.0.3",
+    "typedoc": "^0.21.2",
+    "typescript": "^4.3.5"
   },
   "repository": {
     "type": "git",
