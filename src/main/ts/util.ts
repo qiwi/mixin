@@ -53,7 +53,7 @@ export const toClassMixin = <T>(target: T) =>
       }
     }) as IConstructable<T> & T
 
-export const toObjectMixin = <T extends any>(target: T) =>
+export const toObjectMixin = <T extends any>(target: T) => // eslint-disable-line @typescript-eslint/no-unnecessary-type-constraint
   (isClass(target)
     ? (target as IClass).prototype
     : target

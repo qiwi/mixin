@@ -277,14 +277,14 @@ describe('applyMixins', () => {
       }
 
       const c = applyMixins({}, A, b)
-      c.a() // 'a'
-      c.b() // 'b'
+      expect(c.a()).toBe('a') // c.a() // 'a'
+      expect(c.b()).toBe('b') // c.b() // 'b'
 
       const D = applyMixins(A, b)
       const d: InstanceType<typeof D> = new D(1)
 
-      d.a() // 'a'
-      d.b() // 'b'
+      expect(d.a()).toBe('a') // d.a() // 'a'
+      expect(d.b()).toBe('b') // d.b() // 'b'
     })
   })
 })
