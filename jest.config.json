@@ -23,11 +23,16 @@
     "json",
     "node"
   ],
+  "extensionsToTreatAsEsm": [".ts"],
+  "moduleNameMapper": {
+    "@qiwi/mixin": "<rootDir>/target/es6/index.js"
+  },
   "transform": {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
   "globals": {
     "ts-jest": {
+      "useESM": true,
       "tsconfig": "tsconfig.test.json"
     }
   }
