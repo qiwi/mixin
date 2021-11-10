@@ -1,3 +1,11 @@
+## [1.2.10](https://github.com/qiwi/mixin/compare/v1.2.9...v1.2.10) (2021-11-10)
+
+
+### Bug Fixes
+
+* repack esm/mjs entry ([dc101b9](https://github.com/qiwi/mixin/commit/dc101b995aa86f23fe8a75d94d98e236c560dc9a)), closes [#20](https://github.com/qiwi/mixin/issues/20)
+* update deps, fix some vuls, minor test improvements ([b0affc4](https://github.com/qiwi/mixin/commit/b0affc451ce454a9fa5086f1a0d4a176873a6475))
+
 ## [1.2.9](https://github.com/qiwi/mixin/compare/v1.2.8...v1.2.9) (2021-07-03)
 
 
