@@ -42,7 +42,7 @@
     "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
     "build:libdef": "libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
     "build:esmfix": "tsc-esm-fix --target='target/es6' --ext='.js'",
-    "build:links": "ln -s ../../ ./node_modules/@qiwi/mixin",
+    "build:links": "ln -sf ../../ ./node_modules/@qiwi/mixin",
     "push:report": "yarn coveralls:push",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls",
     "docs": "typedoc",
