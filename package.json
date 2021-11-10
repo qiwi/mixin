@@ -3,13 +3,20 @@
   "version": "1.2.9",
   "description": "RnD project to compare various mixin approaches in TypeScript",
   "private": false,
-  "main": "target/es5/index.js",
-  "source": "src/main/ts/index.ts",
-  "module": "target/bundle/mixin.mjs",
-  "unpkg": "target/bundle/mixin.umd.js",
-  "types": "typings/index.d.ts",
+  "type": "module",
+  "main": "./target/es5/index.js",
+  "exports": {
+    ".": {
+      "require": "./target/es5/index.js",
+      "import": "./target/es6/index.js"
+    }
+  },
+  "source": "./src/main/ts/index.ts",
+  "module": "./target/es6/index.js",
+  "unpkg": "./target/bundle/mixin.umd.js",
+  "types": "./typings/index.d.ts",
   "typescript": {
-    "definition": "typings/index.d.ts"
+    "definition": "./typings/index.d.ts"
   },
   "files": [
     "README.md",
@@ -23,17 +30,19 @@
     "lint": "eslint src/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "test": "npm-run-all -p -l lint test:unit test:depcheck test:depaudit",
-    "test:unit": "jest --config=jest.config.json --runInBand",
-    "test:depcheck": "npm_config_yes=true npx depcheck --ignores typedoc,tslib,@swissquote/crafty-preset-jest,@types/jest",
+    "test:unit": " NODE_OPTIONS=--experimental-vm-modules jest --config=jest.config.json --runInBand",
+    "test:depcheck": "npm_config_yes=true npx depcheck --ignores @qiwi/mixin,eslint-config-*,tsc-esm-fix,typedoc,tslib,@swissquote/crafty-preset-jest,@types/jest",
     "test:depaudit": "yarn audit --level moderate --groups dependencies",
     "test:depauditfix": "npm_config_yes=true npx yarn-audit-fix --audit-level=moderate --only=prod",
     "test:report": "yarn test && yarn push:report",
-    "build": "yarn clean && npm-run-all -p -l build:ts build:es5 build:es6 build:libdef build:bundle docs && yarn uglify",
+    "build": "yarn clean && npm-run-all -p -l build:links build:ts build:es5 build:es6 build:libdef build:bundle docs && yarn build:esmfix",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
-    "build:ts": "cp -r src/main/ts/ target/ts/",
+    "build:ts": "mkdir -p target/ts && cp -r src/main/ts target/ts",
     "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
     "build:libdef": "libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
+    "build:esmfix": "tsc-esm-fix --target='target/es6' --ext='.js'",
+    "build:links": "ln -s ../../ ./node_modules/@qiwi/mixin",
     "push:report": "yarn coveralls:push",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls",
     "docs": "typedoc",
@@ -48,17 +57,18 @@
     "@qiwi/libdefkit": "^3.1.1",
     "@qiwi/npm-run-all": "^4.1.7",
     "@types/jest": "^27.0.2",
+    "coveralls": "^3.1.1",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-qiwi": "^1.15.1",
-    "coveralls": "^3.1.1",
     "jest": "^27.3.1",
     "microbundle": "^0.14.1",
     "rimraf": "^3.0.2",
     "terser": "^5.9.0",
     "ts-jest": "^27.0.7",
     "typedoc": "^0.22.8",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "tsc-esm-fix": "^2.7.3"
   },
   "repository": {
     "type": "git",
