@@ -1,6 +1,5 @@
-var assert = require('assert')
-var {applyMixins} = require('@qiwi/mixin/cjs')
-// or require('@qiwi/mixin/cjs')
+const assert = require('assert')
+const {applyMixins} = require('@qiwi/mixin/umd')
 
 function A() {
 }
@@ -13,12 +12,12 @@ var b = {
   },
 }
 
-var c = applyMixins({}, A, b)
+const c = applyMixins({}, A, b)
 assert(c.a() === 'a')
 assert(c.b() === 'b')
 
-var D = applyMixins(A, b)
-var d = new D()
+const D = applyMixins(A, b)
+const d = new D()
 
 assert(d.a() === 'a')
 assert(d.b() === 'b')
