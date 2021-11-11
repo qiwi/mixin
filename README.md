@@ -35,6 +35,9 @@ d.b() // 'b'
 ```
 Details are illustrated by the [advanced usage examples](./ADVANCED.md).
 
+The library exposes itself as `cjs`, `esm`, `umd` and `ts` sources. 
+Follow `packages.json test:it:*` scripts and [integration tests examples](https://github.com/qiwi/mixin/tree/master/src/it) if you're having troubles with loading.
+
 ## Questions
 0. Definition.
     > A mixin is a special kind of multiple inheritance.

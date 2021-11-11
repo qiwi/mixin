@@ -1,6 +1,6 @@
 import { applyMixins } from '@qiwi/mixin'
 
-describe('bundle', () => {
+describe('default lib entry', () => {
   it('works as in README example', () => {
     interface IA {
       a: () => string

@@ -1,5 +1,6 @@
 import assert from 'assert'
 import {applyMixins} from '@qiwi/mixin'
+// or import {applyMixins} from '@qiwi/mixin/esm'
 
 class A {
   a() {
