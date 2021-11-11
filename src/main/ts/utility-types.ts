@@ -15,16 +15,14 @@ export type InstanceTypeOrType<T> = Extends<T, IConstructable, InstanceType<ICon
 
 export type ConstructableOrEmpty<T> = Extends<T, IConstructable, T, Record<any, any>>
 
-export type UnionToIntersectionOfConstructables<U> = (U extends any
-  ? (k: ConstructableOrEmpty<U>) => void
+type UnionToIntersectionHelper<U, K extends boolean = false> = (U extends any
+  ? (k: Extends<K, true, InstanceTypeOrType<U>, ConstructableOrEmpty<U>>) => void
   : never) extends (k: infer I) => void
-    ? I
-    : never
+  ? I
+  : never
 
-export type UnionToIntersectionOfInstances<U> = (U extends any
-  ? (k: InstanceTypeOrType<U>) => void
-  : never) extends (k: infer I) => void
-    ? I
-    : never
+export type UnionToIntersectionOfInstances<U> = UnionToIntersectionHelper<U, true>
+
+export type UnionToIntersectionOfConstructables<U> = UnionToIntersectionHelper<U>
 
 export type UnaryOrIntersectionTypeFactory<T> = Extends<T, UnaryFn, T, <V>(v: V) => V & T>
