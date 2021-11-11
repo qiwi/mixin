@@ -1499,12 +1499,12 @@
     shell-quote "^1.7.2"
     string.prototype.padend "^3.1.2"
 
-"@qiwi/substrate-abstract@1.20.4":
-  version "1.20.4"
-  resolved "https://registry.npmjs.org/@qiwi/substrate-abstract/-/substrate-abstract-1.20.4.tgz"
-  integrity sha512-QZYVT5fPAH/5SXEq9TPvzhDHppdjP7VVqaI0MPTSqBLNMifyjEuhVEc6QxamzFukm1sD1Cvmf6qMpyI+BR7AzQ==
+"@qiwi/substrate-abstract@1.20.5":
+  version "1.20.5"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate-abstract/-/substrate-abstract-1.20.5.tgz#4fd6d69a9c21e905d628f28777f74b038c759068"
+  integrity sha512-onB52p1yO2nUV44VCB67TT0X+1UyV6t+PnmPpVLkxq6nOzn0NiV2Q63uX6cMnRJUVZgO1OeGKHWL6/XG1jcQwg==
   dependencies:
-    "@qiwi/substrate-types" "1.52.1"
+    "@qiwi/substrate-types" "1.52.2"
 
 "@qiwi/substrate-std@1.3.5":
   version "1.3.5"
@@ -1514,24 +1514,24 @@
     "@qiwi/substrate-types" "1.52.2"
     tslib "^2.3.1"
 
-"@qiwi/substrate-types@1.52.1":
-  version "1.52.1"
-  resolved "https://registry.npmjs.org/@qiwi/substrate-types/-/substrate-types-1.52.1.tgz"
-  integrity sha512-3/s3CD1jJOisSMJfVDUHvH7WRMqCba8doHCEis+ZoKcJHuKlWYNh4hMpWDF7HEtoT5FUEIB/Wpuoia9vZtdTfA==
-
 "@qiwi/substrate-types@1.52.2":
   version "1.52.2"
   resolved "https://registry.npmjs.org/@qiwi/substrate-types/-/substrate-types-1.52.2.tgz"
   integrity sha512-bHCYbGZrTRu7aKow4foBQauiEGwOz+bXcBVpLApLdK+cf4JYMKUZOhHm36bnzx2DdUtNv3DkZVXhzp5cXzZ3JA==
 
-"@qiwi/substrate@^1.20.10":
-  version "1.20.10"
-  resolved "https://registry.npmjs.org/@qiwi/substrate/-/substrate-1.20.10.tgz"
-  integrity sha512-ciW0FIcfkhacoyYQeBZkasY+GBFNB09R7hQLX09vi+FBzf7Fb5yk4n2eryDVJpJ7VGAismLXOEfBHqrM1IuLag==
+"@qiwi/substrate-types@1.53.0":
+  version "1.53.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate-types/-/substrate-types-1.53.0.tgz#7534e9657ba0075f6266d0d1b263b9ce5b819be5"
+  integrity sha512-8wxFGJFeMo5nWcz0ywtuE6Dl9YwkmjgJs+4y3B3Iq6z8P7Pe1ZUlcMQJxFSq2daxp6B0cPUKTS8+hYeRqk730g==
+
+"@qiwi/substrate@^1.20.11":
+  version "1.20.11"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate/-/substrate-1.20.11.tgz#57c416b0d9dca23b92a18bd76372bac5e3384ee6"
+  integrity sha512-vDAXYWhysG+s+tlF6fyx8eB0foC8jVZs0DtpzR5pEPFlS4YCxftuzFDiHq2WlToa3axpdd8UMPfKGqTndfH+YA==
   dependencies:
-    "@qiwi/substrate-abstract" "1.20.4"
+    "@qiwi/substrate-abstract" "1.20.5"
     "@qiwi/substrate-std" "1.3.5"
-    "@qiwi/substrate-types" "1.52.2"
+    "@qiwi/substrate-types" "1.53.0"
     tslib "^2.3.1"
 
 "@rollup/plugin-alias@^3.1.1":
