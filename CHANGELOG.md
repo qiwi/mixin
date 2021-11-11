@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/qiwi/mixin/compare/v1.2.12...v1.3.0) (2021-11-11)
+
+
+### Features
+
+* **package:** provide separate umd entry point ([c23955c](https://github.com/qiwi/mixin/commit/c23955cd9179233c25d3e5fd1d7023be521643ba))
+
 ## [1.2.12](https://github.com/qiwi/mixin/compare/v1.2.11...v1.2.12) (2021-11-11)
 
 ## [1.2.11](https://github.com/qiwi/mixin/compare/v1.2.10...v1.2.11) (2021-11-11)
