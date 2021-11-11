@@ -1,3 +1,10 @@
+## [1.2.11](https://github.com/qiwi/mixin/compare/v1.2.10...v1.2.11) (2021-11-11)
+
+
+### Bug Fixes
+
+* rm type module, add intergation tests for esm, cjs and ts-node ([a2f882a](https://github.com/qiwi/mixin/commit/a2f882a05e686b78c9f6bc3ea594fbedf74599fe))
+
 ## [1.2.10](https://github.com/qiwi/mixin/compare/v1.2.9...v1.2.10) (2021-11-10)
 
 
