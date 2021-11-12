@@ -47,7 +47,7 @@
     "build": "yarn clean && npm-run-all -p -l build:ts build:es5 build:es6 build:libdef build:umd docs && yarn build:esmfix",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
-    "build:ts": "mkdir -p target/ts && cp -r src/main/ts/ target/ts/",
+    "build:ts": "mkdir -p target/ts/ && cp -rp ./src/main/ts/* ./target/ts/",
     "build:umd": "microbundle build src/main/ts/index.ts -o target/umd -f umd",
     "build:libdef": "libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
     "build:esmfix": "tsc-esm-fix --target='target/es6' --ext='.mjs'",
