@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/qiwi/mixin/compare/v1.3.1...v1.3.2) (2021-11-12)
+
+
+### Bug Fixes
+
+* **package:** fix ts target path ([1031ae6](https://github.com/qiwi/mixin/commit/1031ae69f885f9ead3d934cd6c1025a4bf64c27c))
+
 ## [1.3.1](https://github.com/qiwi/mixin/compare/v1.3.0...v1.3.1) (2021-11-11)
 
 # [1.3.0](https://github.com/qiwi/mixin/compare/v1.2.12...v1.3.0) (2021-11-11)
