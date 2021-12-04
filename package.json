@@ -1,8 +1,11 @@
 {
   "name": "@qiwi/mixin",
+  "packageManager": "yarn@3.1.1",
   "version": "1.3.2",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "RnD project to compare various mixin approaches in TypeScript",
-  "private": false,
   "main": "./target/es5/index.js",
   "module": "./target/es6/index.mjs",
   "exports": {
@@ -41,8 +44,8 @@
     "test:it:es5": "node src/it/cjs/index.js",
     "test:it:umd": "node src/it/umd/index.js",
     "test:depcheck": "npm_config_yes=true npx depcheck --ignores @qiwi/mixin,ts-node,eslint-config-*,tsc-esm-fix,typedoc,tslib,@types/jest",
-    "test:depaudit": "yarn audit --level moderate --groups dependencies",
-    "test:depauditfix": "npm_config_yes=true npx yarn-audit-fix --audit-level=moderate --only=prod",
+    "test:depaudit": "yarn npm audit --severity moderate --environment production",
+    "test:depauditfix": "echo 'yarnlock v2 is not supported yet :(' && exit 0 || npm_config_yes=true npx yarn-audit-fix --audit-level=moderate --only=prod",
     "test:report": "yarn test && yarn push:report",
     "build": "yarn clean && npm-run-all -p -l build:ts build:es5 build:es6 build:libdef build:umd docs && yarn build:esmfix",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
@@ -56,7 +59,7 @@
     "coveralls:push": "cat ./coverage/lcov.info | coveralls",
     "docs": "typedoc",
     "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
-    "postupdate": "yarn && yarn test:depauditfix && yarn build && yarn test"
+    "postupdate": "yarn install && yarn run test:depauditfix && yarn build && yarn test"
   },
   "dependencies": {
     "@qiwi/substrate": "^1.20.11",
@@ -65,20 +68,20 @@
   "devDependencies": {
     "@qiwi/libdefkit": "^3.1.1",
     "@qiwi/npm-run-all": "^4.1.7",
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.0.3",
     "coveralls": "^3.1.1",
-    "eslint": "^8.2.0",
+    "eslint": "^8.4.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-qiwi": "^1.15.1",
-    "jest": "^27.3.1",
-    "microbundle": "^0.14.1",
+    "eslint-config-qiwi": "^1.15.2",
+    "jest": "^27.4.3",
+    "microbundle": "^0.14.2",
     "rimraf": "^3.0.2",
-    "terser": "^5.9.0",
+    "terser": "^5.10.0",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
-    "tsc-esm-fix": "^2.7.3",
-    "typedoc": "^0.22.8",
-    "typescript": "^4.4.4"
+    "tsc-esm-fix": "^2.7.4",
+    "typedoc": "^0.22.10",
+    "typescript": "^4.5.2"
   },
   "repository": {
     "type": "git",
