@@ -1,7 +1,7 @@
 # @qiwi/mixin
 RnD project to compare various mixin approaches in TypeScript.
 
-[![Build Status](https://app.travis-ci.com/qiwi/mixin.svg?branch=master)](https://app.travis-ci.com/qiwi/mixin)
+[![CI](https://github.com/qiwi/mixin/actions/workflows/ci.yaml/badge.svg)](https://github.com/qiwi/mixin/actions/workflows/ci.yaml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0ff60f82e170ad04b600/maintainability)](https://codeclimate.com/github/qiwi/mixin/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0ff60f82e170ad04b600/test_coverage)](https://codeclimate.com/github/qiwi/mixin/test_coverage)
 [![npm (tag)](https://img.shields.io/npm/v/@qiwi/mixin)](https://www.npmjs.com/package/@qiwi/mixin)
