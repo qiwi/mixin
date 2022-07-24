@@ -45,6 +45,7 @@ jobs:
             flow-typed
             typings
             buildstamp.json
+            package.json
 
   test_push:
     needs: build
@@ -102,7 +103,7 @@ jobs:
 
       - name: Test & push coverage
         if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
-        run: test
+        run: yarn test
 
   release:
     name: Release
@@ -111,7 +112,11 @@ jobs:
     needs: test_push
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
       - name: Restore artifact
         uses: actions/download-artifact@v3
@@ -132,11 +137,8 @@ jobs:
 
       - name: Release
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GH_USER: 'qiwibot'
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GIT_AUTHOR_EMAIL: 'opensource@qiwi.com'
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GIT_COMMITTER_EMAIL: 'opensource@qiwi.com'
-          GIT_AUTHOR_NAME: '@qiwibot'
-          GIT_COMMITTER_NAME: '@qiwibot'
-        run: npx -p @qiwi/semrel-toolkit semrel
+          GIT_COMMITTER_NAME: 'qiwibot'
+        run: npm_config_yes=true npx zx-semrel
