@@ -1,3 +1,8 @@
+## [1.3.4](https://github.com/qiwi/mixin/compare/v1.3.3...v1.3.4) (2022-07-24)
+
+### Fixes & improvements
+* docs: rm travis badge ([df56628](https://github.com/qiwi/mixin/commit/df56628e0832382714c6148a6d505c5738ae8aad))
+
 ## [1.3.2](https://github.com/qiwi/mixin/compare/v1.3.1...v1.3.2) (2021-11-12)
 
 
