@@ -74,7 +74,7 @@
     "microbundle": "^0.15.0",
     "rimraf": "^3.0.2",
     "terser": "^5.14.2",
-    "ts-jest": "^28.0.7",
+    "ts-jest": "^29.0.0",
     "ts-node": "^10.9.1",
     "tsc-esm-fix": "^2.20.0",
     "typedoc": "^0.23.8",
