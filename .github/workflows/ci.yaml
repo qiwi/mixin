@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   init:
     name: init
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     outputs:
       skip: ${{ steps.ci-skip-step.outputs.ci-skip }}
       skip-not: ${{ steps.ci-skip-step.outputs.ci-skip-not }}
@@ -18,7 +18,7 @@ jobs:
     name: build
     needs: init
     if: ${{ needs.init.outputs.skip == 'false' }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Fetch deps
         run: yarn
@@ -50,7 +50,7 @@ jobs:
   test_push:
     needs: build
     if: github.event_name == 'push'
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
 
@@ -61,7 +61,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       - run: yarn
       - name: Unit test only
         run: yarn test
@@ -81,8 +81,8 @@ jobs:
     needs: build
     strategy:
       matrix:
-        os: [ ubuntu-20.04 ]
-        node-version: [ 14, 16 ]
+        os: [ ubuntu-22.04 ]
+        node-version: [ 14, 16, 18 ]
     name: Test (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     steps:
@@ -98,11 +98,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn
       - name: Test only
-        if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
+        if: matrix.node-version != '18' || matrix.os != 'ubuntu-22.04'
         run: yarn test
 
       - name: Test & push coverage
-        if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
+        if: matrix.node-version == '18' && matrix.os == 'ubuntu-22.04'
         run: yarn test
 
   release:
@@ -110,7 +110,7 @@ jobs:
     # https://github.community/t/trigger-job-on-tag-push-only/18076
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: test_push
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -125,7 +125,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Codeclimate
         uses: paambaati/codeclimate-action@v3.0.0
