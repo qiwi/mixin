@@ -1,3 +1,8 @@
+## [1.3.5](https://github.com/qiwi/mixin/compare/v1.3.4...v1.3.5) (2022-09-14)
+
+### Fixes & improvements
+* perf: add TS 4.8 support ([dbf50b4](https://github.com/qiwi/mixin/commit/dbf50b4e877ec16e8ce0718010049d7811d0df0f))
+
 ## [1.3.4](https://github.com/qiwi/mixin/compare/v1.3.3...v1.3.4) (2022-07-24)
 
 ### Fixes & improvements
