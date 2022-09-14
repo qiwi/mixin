@@ -1,5 +1,4 @@
 {
-  "preset": "ts-jest",
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [
     "types.ts"
@@ -27,12 +26,9 @@
     "@qiwi/mixin": "<rootDir>/target/es6/index.mjs"
   },
   "transform": {
-    "^.+\\.(ts|tsx)$": "ts-jest"
-  },
-  "globals": {
-    "ts-jest": {
+    "^.+\\.(ts|tsx)$": ["ts-jest", {
       "useESM": true,
-      "tsconfig": "tsconfig.test.json"
-    }
+      "tsconfig": "<rootDir>/tsconfig.test.json"
+    }]
   }
 }

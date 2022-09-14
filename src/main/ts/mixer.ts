@@ -65,7 +65,7 @@ export const applyMixinsAsProto: IClassApplier = <T extends IConstructable, U ex
 export const applyMixins: IApplier = <T, U extends any[]>(target: T, ...mixins: U) =>
   (isClass(target)
     ? applyMixinsAsSubclass(target as T & IConstructable, ...mixins.map(toClassMixin))
-    : applyMixinsAsMerge(target, ...mixins.map(toObjectMixin))
+    : applyMixinsAsMerge(target as IAnyMap, ...mixins.map(toObjectMixin))
   ) as IMixed<T, U>
 
 export const applyMixinsAsPipe: IPipeApplier = (...fns) => x => fns

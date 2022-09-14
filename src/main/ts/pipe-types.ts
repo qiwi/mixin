@@ -52,3 +52,5 @@ export type UnariesToPiped<F extends any[]> = {
 
 export type IPipeApplier = <F extends any[]>(...funcs: UnariesToPiped<F>) =>
   (i: ParameterUnary<UnaryOrIntersectionTypeFactory<F[0]>>) => PipeResult<F[number]>
+
+export {}

@@ -28,7 +28,8 @@ RnD project to compare various mixin approaches in TypeScript.
 ## Getting started
 
 ### Requirements
-Node.js `^12.20.0 || ^14.13.1 || >=16.0.0`
+* Node.js `^12.20.0 || ^14.13.1 || >=16.0.0`
+* TypeScript `>= 3.7 | 4.x`
 
 ### Install
 ```shell
