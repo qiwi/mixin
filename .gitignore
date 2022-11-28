@@ -18,8 +18,17 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 flow-coverage
 lib-cov
 coverage
+coverage.*
 .nyc_output
 *.lcov
+
+# CI/CD
+artifact.tar
+
+# Codeclimate
+codeclimate.*
+cc-reporter
+cc-reporter.*
 
 # Bundle
 build
