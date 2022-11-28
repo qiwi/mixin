@@ -1,3 +1,8 @@
+## [1.3.6](https://github.com/qiwi/mixin/compare/v1.3.5...v1.3.6) (2022-11-28)
+
+### Fixes & improvements
+* fix: ignore codeclimate temp data ([dd2a812](https://github.com/qiwi/mixin/commit/dd2a81230b8834e22c1656f304da9515c03b8554))
+
 ## [1.3.5](https://github.com/qiwi/mixin/compare/v1.3.4...v1.3.5) (2022-09-14)
 
 ### Fixes & improvements
