@@ -59,7 +59,7 @@
     "postupdate": "yarn && yarn test:depauditfix && yarn build && yarn test"
   },
   "dependencies": {
-    "@qiwi/substrate": "^1.20.15",
+    "@qiwi/substrate": "^2.0.0",
     "tslib": "^2.4.1"
   },
   "devDependencies": {
