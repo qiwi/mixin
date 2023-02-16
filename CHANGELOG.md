@@ -1,3 +1,8 @@
+## [1.3.7](https://github.com/qiwi/mixin/compare/v1.3.6...v1.3.7) (2023-02-16)
+
+### Fixes & improvements
+* fix(deps): update dependency @qiwi/substrate to v2 ([22cdd8f](https://github.com/qiwi/mixin/commit/22cdd8f9defbda8e9d04bb4bd4ee1aeb13925cf0))
+
 ## [1.3.6](https://github.com/qiwi/mixin/compare/v1.3.5...v1.3.6) (2022-11-28)
 
 ### Fixes & improvements
