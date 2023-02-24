@@ -40,7 +40,7 @@
     "test:it:esm": "node src/it/esm/index.mjs",
     "test:it:es5": "node src/it/cjs/index.js",
     "test:it:umd": "node src/it/umd/index.js",
-    "test:depcheck": "npm_config_yes=true npx depcheck --ignores @qiwi/mixin,ts-node,eslint-config-*,tsc-esm-fix,typedoc,tslib,@types/jest",
+    "test:depcheck": "npm_config_yes=true npx depcheck --ignores @qiwi/mixin,ts-node,eslint-config-*,tsc-esm-fix,typedoc,tslib,@types/jest,rimraf",
     "test:depaudit": "yarn audit --level moderate --groups dependencies",
     "test:depauditfix": "npm_config_yes=true npx yarn-audit-fix --audit-level=moderate --only=prod",
     "test:report": "yarn test && yarn push:report",
