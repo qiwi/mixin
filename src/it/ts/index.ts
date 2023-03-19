@@ -1,5 +1,5 @@
 import {applyMixins} from '@qiwi/mixin'
-import assert from 'assert'
+import assert from 'node:assert'
 
 interface IA {
   a: () => string

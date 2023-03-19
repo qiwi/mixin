@@ -3,21 +3,8 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  init:
-    name: init
-    runs-on: ubuntu-22.04
-    outputs:
-      skip: ${{ steps.ci-skip-step.outputs.ci-skip }}
-      skip-not: ${{ steps.ci-skip-step.outputs.ci-skip-not }}
-    steps:
-      - uses: actions/checkout@v3
-      - id: ci-skip-step
-        uses: mstachniuk/ci-skip@v1
-
   build:
     name: build
-    needs: init
-    if: ${{ needs.init.outputs.skip == 'false' }}
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout

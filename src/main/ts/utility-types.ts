@@ -1,15 +1,10 @@
 import {
   Extends,
   IConstructable,
-  PrependTuple,
   UnaryFn,
 } from '@qiwi/substrate'
 
-export {
-  UnaryFn as Unary,
-  PrependTuple,
-  Extends,
-}
+export { PrependTuple, UnaryFn as Unary, Extends } from '@qiwi/substrate'
 
 export type InstanceTypeOrType<T> = Extends<T, IConstructable, InstanceType<IConstructable & T>, T>
 

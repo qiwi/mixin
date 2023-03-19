@@ -12,7 +12,8 @@ module.exports = {
             'files': ['src/test/**/*.ts'],
             'rules': {
                 'unicorn/consistent-function-scoping': 'off',
-                'unicorn/no-null': 'off'
+                'unicorn/no-null': 'off',
+                '@typescript-eslint/ban-ts-comment': 'off'
             }
         }
     ]
