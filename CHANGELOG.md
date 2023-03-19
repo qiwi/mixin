@@ -1,3 +1,8 @@
+## [1.3.8](https://github.com/qiwi/mixin/compare/v1.3.7...v1.3.8) (2023-03-19)
+
+### Fixes & improvements
+* perf: up deps ([5a80ade](https://github.com/qiwi/mixin/commit/5a80ade71682a58e50045b0650e16c84a4e11d59))
+
 ## [1.3.7](https://github.com/qiwi/mixin/compare/v1.3.6...v1.3.7) (2023-02-16)
 
 ### Fixes & improvements
