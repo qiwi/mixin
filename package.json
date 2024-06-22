@@ -77,7 +77,7 @@
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
     "tsc-esm-fix": "^2.20.12",
-    "typedoc": "^0.24.0",
+    "typedoc": "^0.26.0",
     "typescript": "^5.0.2"
   },
   "repository": {
