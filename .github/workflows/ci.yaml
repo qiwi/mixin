@@ -22,7 +22,7 @@ jobs:
         run: yarn build
 
       - name: Save artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifact-${{ github.run_id }}
           retention-days: 1
@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Restore artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact-${{ github.run_id }}
 
@@ -55,7 +55,7 @@ jobs:
 
       - name: Update coverage
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifact-${{ github.run_id }}
           retention-days: 1
@@ -76,7 +76,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Restore artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact-${{ github.run_id }}
 
@@ -106,7 +106,7 @@ jobs:
           persist-credentials: false
 
       - name: Restore artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact-${{ github.run_id }}
 
