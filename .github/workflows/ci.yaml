@@ -24,7 +24,7 @@ jobs:
       - name: Save artifact
         uses: actions/upload-artifact@v4
         with:
-          name: artifact-${{ github.run_id }}
+          name: build-${{ github.sha }}
           retention-days: 1
           path: |
             docs
@@ -44,7 +44,7 @@ jobs:
       - name: Restore artifact
         uses: actions/download-artifact@v4
         with:
-          name: artifact-${{ github.run_id }}
+          name: build-${{ github.sha }}
 
       - uses: actions/setup-node@v4
         with:
@@ -57,7 +57,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v4
         with:
-          name: artifact-${{ github.run_id }}
+          name: build-${{ github.sha }}
           retention-days: 1
           path: |
             coverage
@@ -78,7 +78,7 @@ jobs:
       - name: Restore artifact
         uses: actions/download-artifact@v4
         with:
-          name: artifact-${{ github.run_id }}
+          name: build-${{ github.sha }}
 
       - uses: actions/setup-node@v4
         with:
@@ -120,7 +120,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageLocations: |
-            ${{github.workspace}}/coverage/*.lcov:lcov
+            ${{github.workspace}}/coverage/lcov.info:lcov
 
       - name: Release
         env:
