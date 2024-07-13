@@ -76,7 +76,7 @@
     "terser": "^5.31.2",
     "ts-jest": "^29.2.2",
     "ts-node": "^10.9.2",
-    "tsc-esm-fix": "^2.20.27",
+    "tsc-esm-fix": "^3.0.0",
     "typedoc": "^0.26.4",
     "typescript": "^5.5.3"
   },
