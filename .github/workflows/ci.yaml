@@ -53,15 +53,23 @@ jobs:
       - name: Unit test only
         run: yarn test
 
-      - name: Update coverage
+      - name: Upload coverage
         if: github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v4
         with:
-          name: build-${{ github.sha }}
-          retention-days: 1
+          name: coverage-${{ github.sha }}
           path: |
             coverage
             .nyc_output
+
+      - name: Merge artifacts
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact/merge@v4
+        with:
+          name: all-${{ github.sha }}
+          patterns: |
+            build-${{ github.sha }}
+            coverage-${{ github.sha }}
 
   test_pr:
     if: github.event_name == 'pull_request'
@@ -108,7 +116,7 @@ jobs:
       - name: Restore artifact
         uses: actions/download-artifact@v4
         with:
-          name: artifact-${{ github.run_id }}
+          name: all-${{ github.sha }}
 
       - uses: actions/setup-node@v4
         with:
