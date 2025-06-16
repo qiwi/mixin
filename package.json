@@ -65,7 +65,7 @@
   "devDependencies": {
     "@qiwi/libdefkit": "^6.1.4",
     "@qiwi/npm-run-all": "^4.1.7",
-    "@types/jest": "^29.5.14",
+    "@types/jest": "^30.0.0",
     "coveralls": "^3.1.1",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^10.0.0",
