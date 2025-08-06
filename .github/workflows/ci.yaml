@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Restore artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: build-${{ github.sha }}
 
@@ -84,7 +84,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Restore artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: build-${{ github.sha }}
 
@@ -114,7 +114,7 @@ jobs:
           persist-credentials: false
 
       - name: Restore artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: all-${{ github.sha }}
 
