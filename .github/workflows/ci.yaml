@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Fetch deps
         run: yarn
@@ -48,7 +48,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
       - run: yarn
       - name: Unit test only
         run: yarn test
@@ -120,7 +120,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Codeclimate
         uses: paambaati/codeclimate-action@v9.0.0
